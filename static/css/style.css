@@ -6,33 +6,56 @@ body {
     color: #16161A; /* Texto negro */
 }
 /* NAVBAR */
+
 .navbar {
-  background: linear-gradient(90deg, #94A1B2, #2CB67D); /* Gradient background */
+  background: linear-gradient(90deg, #94A1B2, #2CB67D); /* Smooth gradient background */
+  padding: 10px 20px;
+  display: flex; /* Enable flexbox */
+  justify-content: space-between; /* Push brand and nav items apart */
+  align-items: center;
+  height: 40px;
 }
 
 .navbar-brand {
+  color: #FFFFFE !important; /* White logo text */
   font-weight: bold;
-  color: #FFFFFE !important; /* White text for logo */
+  font-size: 1.5rem;
+  margin-right: auto;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav {
+  display: flex; /* Align navigation items horizontally */
+  margin-left: 850px; /* Push navigation to the right */
+  gap: 20px; /* Add spacing between nav items */
+  list-style: none; /* Remove default list styling */
+}
+
+.nav-item {
+  list-style: none; /* Ensure no bullets or dots appear */
+  margin-right: auto;
+}
+
+.nav-link {
   color: #FFFFFE !important; /* White text for links */
-  font-weight: bold;
-  margin-right: 15px; /* Spacing between links */
+  font-weight: 500;
+  text-decoration: none; /* Remove underline from links */
 }
 
-.navbar-nav .nav-link:hover {
-  color: #7F5AF0 !important; /* Purple on hover */
+.nav-link:hover {
+  color: #7F5AF0 !important; /* Purple hover effect */
 }
 
 .navbar-toggler {
-  border: none; /* Removes border from toggler */
+  border: none; /* Remove border from toggler */
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Custom white toggler icon */
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* White toggler icon */
 }
-
+.container {
+  display: flex;
+  align-items: center; /* Align all items within the container */
+}
 /* Hero Section */
 .hero-section {
   background-color: #2CB67D; /* Solid green background */
