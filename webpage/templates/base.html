@@ -70,5 +70,37 @@
             once: true      // Ejecuta la animación solo una vez
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observerOptions = {
+                root: null, // Usa la ventana como viewport
+                rootMargin: "0px",
+                threshold: 0.1, // Cuando el 10% del elemento esté visible
+            };
+      
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const target = entry.target;
+      
+                    if (entry.isIntersecting) {
+                        // Agregar clase 'visible' al entrar
+                        target.classList.add("visible");
+                        target.classList.remove("hidden");
+                    } 
+                    else{
+                        // Agregar clase 'hidden' al salir
+                        target.classList.remove("visible");
+                        target.classList.add("hidden");
+                    }
+                });
+            }, observerOptions);
+      
+            // Seleccionar los elementos animados
+            const animatedElements = document.querySelectorAll("[data-animation]");
+            animatedElements.forEach((element) => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>

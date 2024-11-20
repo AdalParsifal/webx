@@ -5,6 +5,81 @@ body {
     background-color: #FFFFFE; /* Fondo blanco */
     color: #16161A; /* Texto negro */
 }
+
+/* Animaciones */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Clases para activar las animaciones */
+[data-animation="fade-right"] {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.5s ease-in-out;
+}
+
+[data-animation="fade-left"] {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.5s ease-in-out;
+}
+
+[data-animation="fade-right"].visible {
+  animation: fadeInRight 0.8s forwards;
+}
+
+[data-animation="fade-left"].visible {
+  animation: fadeInLeft 0.8s forwards;
+}
+
+[data-animation="fade-right"].hidden {
+  animation: fadeOutRight 0.8s forwards;
+}
+
+[data-animation="fade-left"].hidden {
+  animation: fadeOutLeft 0.8s forwards;
+}
+
 /* NAVBAR */
 
 .navbar {
