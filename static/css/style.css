@@ -165,30 +165,62 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-#features {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  background-color: #f8f9fa; /* Light gray background */
+/* Features */
+/* Features Section Styling */
+.features-section {
+  display: flex; /* Enable Flexbox */
+  justify-content: space-around; /* Space out columns evenly */
+  align-items: flex-start; /* Align items at the top */
+  flex-wrap: wrap; /* Allow wrapping for additional rows */
+  padding: 20px; /* Add padding around the section */
+  gap: 20px; /* Space between feature cards */
 }
 
-.card {
-  border-radius: 10px; /* Rounded corners for cards */
+/* Individual Feature Card Styling */
+.feature-card {
+  background-color: #2CB67D; /* Green background */
+  color: #FFFFFE; /* White text */
+  border: 1px solid #7F5AF0; /* Purple border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Inner spacing */
+  width: 300px; /* Fixed width for consistent layout */
+  height: 250px; /* Fixed height for consistent layout */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: left; /* Align content to the left */
+  position: relative; /* For icon placement */
 }
 
-.card-body i {
-  color: #2CB67D; /* Custom icon color */
+/* Icon Styling */
+.feature-icon {
+  font-size: 1.5rem; /* Smaller icon size */
+  color: #FFFFFE; /* White icon */
+  position: absolute; /* Position relative to the card */
+  top: 15px; /* Space from top of card */
+  left: 15px; /* Space from left of card */
 }
 
-.card-title {
+/* Title of Feature Card */
+.feature-title {
+  margin-top: 50px; /* Space below the icon */
   font-size: 1.2rem;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
-.card-text {
+/* Feature Description */
+.feature-description {
   font-size: 0.9rem;
-  color: #6c757d; /* Muted text color */
+  margin-bottom: 0;
+  color: #FFFFFE; /* White text */
 }
 
+/* Hover Effect for Cards */
+.feature-card:hover {
+  background-color: #7F5AF0; /* Purple background on hover */
+  color: #FFFFFE; /* Keep text white */
+  transform: scale(1.05); /* Slight zoom effect */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
 /* Footer */
 .footer-section {
     background-color: #16161A;
