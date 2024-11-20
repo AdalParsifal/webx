@@ -1,0 +1,65 @@
+/* General */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #16161A;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #2CB67D;
+    color: #FFFFFE;
+}
+
+.hero-section .btn {
+    background-color: #FFFFFE;
+    color: #16161A;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.hero-section .btn:hover {
+    background-color: #7F5AF0;
+    color: #FFFFFE;
+}
+
+/* Plans Section */
+/* Cards */
+.plans-section .card {
+    border: none;
+    border-radius: 8px;
+    background-color: #FFFFFE;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plans-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.plans-section .btn {
+    background-color: #7F5AF0;
+    color: #FFFFFE;
+    border-radius: 5px;
+}
+
+.plans-section .btn:hover {
+    background-color: #2CB67D;
+    color: #FFFFFE;
+}
+
+/* Footer */
+.footer-section {
+    background-color: #16161A;
+    color: #94A1B2;
+}
+
+.footer-section a {
+    color: #FFFFFE;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #2CB67D;
+}

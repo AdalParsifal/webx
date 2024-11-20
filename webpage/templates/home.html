@@ -1,101 +1,107 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Inicio - WeWeb{% endblock %}
+{% block title %}WeWeb - Páginas Web a tu Medida{% endblock %}
 
 {% block content %}
-<section class="bg-light py-5">
+
+<!-- Sección 1: Hero con Imagen Publicitaria -->
+<section class="hero-section py-5" style="background: linear-gradient(to bottom, rgba(44, 182, 125, 0.8), rgba(44, 182, 125, 0.8)), url('{% static "img/hero-background.jpg" %}') no-repeat center center / cover;">
     <div class="container">
-        <h2 class="text-center">¿Por qué elegir WeWeb?</h2>
-        <p class="text-center">Creamos páginas web modernas, personalizables y optimizadas para ayudarte a destacar en el mundo digital.</p>
-        <div class="row mt-4">
-            <div class="col-md-4 text-center">
-                <i class="bi bi-speedometer2 fs-1 text-primary"></i>
-                <h4>Rápidas</h4>
-                <p>Velocidad y rendimiento garantizados para mejorar la experiencia de tus usuarios.</p>
+        <div class="row align-items-center">
+            <!-- Imagen Publicitaria -->
+            <div class="col-md-6 text-center">
+                <img src="{% static 'img/image1.jpg' %}" alt="Publicidad" class="img-fluid shadow-lg rounded">
             </div>
-            <div class="col-md-4 text-center">
-                <i class="bi bi-laptop fs-1 text-primary"></i>
-                <h4>Responsivas</h4>
-                <p>Nuestras páginas se adaptan perfectamente a cualquier dispositivo.</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
-                <h4>Optimización SEO</h4>
-                <p>Posiciona tu negocio en los primeros lugares de los motores de búsqueda.</p>
+            <!-- Texto y Botón -->
+            <div class="col-md-6 text-white text-center text-md-start">
+                <h1 class="fw-bold" style="font-size: 2.5rem; line-height: 1.2;">Páginas web a tu medida</h1>
+                <p class="lead mt-3">Lleva tu proyecto al siguiente nivel con nuestras soluciones personalizadas.</p>
+                <a href="#planes" class="btn btn-light btn-lg mt-4" style="color: #2CB67D;">Revisa nuestros planes</a>
             </div>
         </div>
     </div>
 </section>
 
-<section id="servicios" class="py-5">
+<!-- Sección 2: Planes -->
+<section id="planes" class="plans-section py-5">
     <div class="container">
-        <h2 class="text-center">Nuestros Servicios</h2>
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <h4>Desarrollo Web</h4>
-                <p>Diseño y desarrollo de sitios web a medida, desde landing pages hasta plataformas complejas.</p>
+        <h2 class="text-center fw-bold mb-4" style="color: #7F5AF0;">Nuestros Planes</h2>
+        <div class="row">
+            <!-- Plan Básico -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="fw-bold" style="color: #2CB67D;">Plan Básico</h3>
+                        <h4 class="fw-bold text-dark">$49.990 <span class="fs-6 text-muted">/ Anual</span></h4>
+                        <ul class="list-unstyled mt-3">
+                            <li>Diseño web estándar</li>
+                            <li>Hosting 500MB incluido</li>
+                            <li>Certificado SSL</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary mt-3">Elige este plan</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h4>Marketing Digital</h4>
-                <p>Campañas de publicidad digital para impulsar tu negocio en redes sociales y buscadores.</p>
+            <!-- Plan Económico -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="fw-bold" style="color: #7F5AF0;">Plan Económico</h3>
+                        <h4 class="fw-bold text-dark">$99.990 <span class="fs-6 text-muted">/ Anual</span></h4>
+                        <ul class="list-unstyled mt-3">
+                            <li>Diseño web personalizado</li>
+                            <li>Hosting 1GB incluido</li>
+                            <li>Certificado SSL</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary mt-3">Elige este plan</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Plan Emprendedor -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="fw-bold" style="color: #94A1B2;">Plan Emprendedor</h3>
+                        <h4 class="fw-bold text-dark">$199.990 <span class="fs-6 text-muted">/ Anual</span></h4>
+                        <ul class="list-unstyled mt-3">
+                            <li>Diseño web avanzado</li>
+                            <li>Hosting 5GB incluido</li>
+                            <li>Certificado SSL</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary mt-3">Elige este plan</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="planes" class="bg-light py-5">
+
+<!-- Sección 3: Sobre Nosotros -->
+<section class="about-section py-5" style="background-color: #16161A; color: #FFFFFE;">
     <div class="container">
-        <h2 class="text-center">Nuestros Planes</h2>
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h4>Plan Básico</h4>
-                        <p>Ideal para pequeñas empresas.</p>
-                        <p><strong>$300 USD</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h4>Plan Pro</h4>
-                        <p>Perfecto para negocios en crecimiento.</p>
-                        <p><strong>$500 USD</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h4>Plan Premium</h4>
-                        <p>La solución completa para empresas grandes.</p>
-                        <p><strong>$1000 USD</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h2 class="text-center fw-bold">Sobre Nosotros</h2>
+        <p class="mt-3 text-center">
+            En WeWeb, estamos dedicados a brindar servicios de diseño y desarrollo web que se adapten a tus necesidades. Desde pequeñas empresas hasta grandes proyectos, nuestro enfoque está en ofrecer calidad y resultados tangibles.
+        </p>
+        <p class="mt-3 text-center">
+            Con años de experiencia y un equipo comprometido, nuestro objetivo es llevar tu presencia en línea al siguiente nivel.
+        </p>
     </div>
 </section>
 
-<section id="contacto" class="py-5">
-    <div class="container">
-        <h2 class="text-center">Contáctanos</h2>
-        <form class="mt-4">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+<!-- Sección 4: Footer -->
+<footer class="footer-section py-4">
+    <div class="container text-center">
+        <h4 class="fw-bold" style="color: #7F5AF0;">Síguenos en nuestras redes sociales</h4>
+        <div class="social-icons mt-3">
+            <a href="#" class="btn btn-outline-light rounded-circle mx-2" style="background-color: #2CB67D;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light rounded-circle mx-2" style="background-color: #7F5AF0;"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="btn btn-outline-light rounded-circle mx-2" style="background-color: #94A1B2;"><i class="bi bi-instagram"></i></a>
+        </div>
+        <p class="mt-4" style="color: #94A1B2;">© 2024 WeWeb. Todos los derechos reservados. <a href="#" class="text-decoration-none text-light">Términos y condiciones</a>.</p>
     </div>
-</section>
+</footer>
+
 {% endblock %}
