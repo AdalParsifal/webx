@@ -165,6 +165,30 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+#features {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.card {
+  border-radius: 10px; /* Rounded corners for cards */
+}
+
+.card-body i {
+  color: #2CB67D; /* Custom icon color */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #6c757d; /* Muted text color */
+}
+
 /* Footer */
 .footer-section {
     background-color: #16161A;
