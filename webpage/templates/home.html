@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - WeWeb{% endblock %}
+
+{% block content %}
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center">¿Por qué elegir WeWeb?</h2>
+        <p class="text-center">Creamos páginas web modernas, personalizables y optimizadas para ayudarte a destacar en el mundo digital.</p>
+        <div class="row mt-4">
+            <div class="col-md-4 text-center">
+                <i class="bi bi-speedometer2 fs-1 text-primary"></i>
+                <h4>Rápidas</h4>
+                <p>Velocidad y rendimiento garantizados para mejorar la experiencia de tus usuarios.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-laptop fs-1 text-primary"></i>
+                <h4>Responsivas</h4>
+                <p>Nuestras páginas se adaptan perfectamente a cualquier dispositivo.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
+                <h4>Optimización SEO</h4>
+                <p>Posiciona tu negocio en los primeros lugares de los motores de búsqueda.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="servicios" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Nuestros Servicios</h2>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4>Desarrollo Web</h4>
+                <p>Diseño y desarrollo de sitios web a medida, desde landing pages hasta plataformas complejas.</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Marketing Digital</h4>
+                <p>Campañas de publicidad digital para impulsar tu negocio en redes sociales y buscadores.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="planes" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center">Nuestros Planes</h2>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4>Plan Básico</h4>
+                        <p>Ideal para pequeñas empresas.</p>
+                        <p><strong>$300 USD</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4>Plan Pro</h4>
+                        <p>Perfecto para negocios en crecimiento.</p>
+                        <p><strong>$500 USD</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4>Plan Premium</h4>
+                        <p>La solución completa para empresas grandes.</p>
+                        <p><strong>$1000 USD</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Contáctanos</h2>
+        <form class="mt-4">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
