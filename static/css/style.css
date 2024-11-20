@@ -134,9 +134,13 @@ body {
 }
 
 .about-section img {
-  max-width: 45%;
-  border-radius: 10px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 100%; /* Escala automáticamente según el tamaño del contenedor */
+  width: 80%; /* Establece un tamaño máximo inicial */
+  max-height: 400px; /* Altura máxima */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Sombra */
+  object-fit: cover; /* Asegura que la imagen se vea bien dentro del espacio */
+  margin: auto; /* Centra la imagen */
 }
 /* COLUMNAS */
 .plans-section {
