@@ -23,6 +23,12 @@ body {
   margin-right: auto;
 }
 
+.navbar-brand .logo {
+  height: 40px; /* Adjust the logo height */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image is properly scaled */
+}
+
 .navbar-nav {
   display: flex; /* Align navigation items horizontally */
   margin-left: 850px; /* Push navigation to the right */
