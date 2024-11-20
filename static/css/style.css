@@ -192,7 +192,7 @@ body {
 .about-section {
   background-color: #16161A; /* Fondo negro */
   color: #FFFFFE; /* Texto blanco */
-  padding: 60px 0;
+  padding: 60px;
 }
 
 .about-section h2 {
