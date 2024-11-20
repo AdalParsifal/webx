@@ -186,14 +186,7 @@ body {
 }
 
 /* Features Section Styling */
-.features-section {
-  display: flex; /* Enable Flexbox */
-  justify-content: space-between; /* Spread cards evenly */
-  align-items: flex-start; /* Align items at the top */
-  flex-wrap: wrap; /* Allow wrapping for multiple rows */
-  padding: 100px; /* Reduce padding around the section */
-  gap: 11px; /* Reduce space between cards */
-}
+
 
 /* Individual Feature Card Styling */
 .feature-card {
