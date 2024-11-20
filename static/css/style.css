@@ -167,6 +167,15 @@ body {
 
 /* Features */
 /* Features Section Styling */
+
+.section-title {
+  width: 100%; /* Full width */
+  text-align: center; /* Center align the title */
+  font-size: 1.5rem; /* Adjust title size */
+  font-weight: bold; /* Bold title */
+  margin-bottom: 20px; /* Space below the title */
+  color: #16161A; /* Dark text color */
+}
 .features-section {
   display: flex; /* Enable Flexbox */
   justify-content: space-around; /* Space out columns evenly */
@@ -179,55 +188,54 @@ body {
 /* Features Section Styling */
 .features-section {
   display: flex; /* Enable Flexbox */
-  justify-content: space-around; /* Space out columns evenly */
+  justify-content: space-between; /* Spread cards evenly */
   align-items: flex-start; /* Align items at the top */
-  flex-wrap: wrap; /* Allow wrapping for additional rows */
-  padding: 20px; /* Add padding around the section */
-  gap: 20px; /* Space between feature cards */
+  flex-wrap: wrap; /* Allow wrapping for multiple rows */
+  padding: 100px; /* Reduce padding around the section */
+  gap: 11px; /* Reduce space between cards */
 }
 
 /* Individual Feature Card Styling */
 .feature-card {
-  display: flex; /* Use Flexbox for icon and text alignment */
-  
-  align-items: flex-start; /* Vertically center icon and text */
+  display: flex; /* Align icon and text horizontally */
+  align-items: center; /* Align icon and text vertically */
   background-color: #2CB67D; /* Green background */
   color: #FFFFFE; /* White text */
   border: 1px solid #7F5AF0; /* Purple border */
-  border-radius: 10px; /* Rounded corners */
-  padding: 15px; /* Reduced padding */
-  width: 400px; /* Adjusted width */
-  height: 100px; /* Compact height */
+  border-radius: 8px; /* Slightly rounded corners */
+  padding: 10px; /* Compact padding */
+  width: 300px; /* Smaller width */
+  height: 80px; /* Smaller height */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   text-align: left; /* Align text to the left */
 }
 
 /* Icon Styling */
 .feature-icon {
-  font-size: 2rem; /* Smaller icon size */
-  margin-right: 15px; /* Space between icon and text */
-  color: #FFFFFE; /* White icon */
+  font-size: 1.5rem; /* Smaller icon size */
+  color: #FFFFFE; /* White icon color */
+  margin-right: 10px; /* Space between icon and text */
 }
 
 /* Title and Description Styling */
 .feature-title {
-  font-size: 1.1rem; /* Smaller font for the title */
+  font-size: 1rem; /* Smaller font for title */
   font-weight: bold;
-  margin: 0;
-  line-height: 1.2;
+  margin: 0; /* Remove extra margins */
+  line-height: 1.1; /* Compact line height */
 }
 
 .feature-description {
-  font-size: 0.9rem; /* Smaller font for description */
-  margin: 0; /* Remove extra margin */
-  color: #E4E4E4; /* Slightly lighter white for text */
+  font-size: 0.85rem; /* Smaller font for description */
+  margin: 0; /* Remove extra margins */
+  color: #E4E4E4; /* Slightly lighter text color */
 }
 
 /* Hover Effect for Cards */
 .feature-card:hover {
   background-color: #7F5AF0; /* Purple background on hover */
   color: #FFFFFE; /* Keep text white */
-  transform: scale(1.02); /* Subtle zoom effect */
+  transform: scale(1.02); /* Slight zoom effect */
   transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 /* Footer */
