@@ -1,52 +1,118 @@
-/* General */
 body {
     font-family: 'Poppins', sans-serif;
-    color: #16161A;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFE; /* Fondo blanco */
+    color: #16161A; /* Texto negro */
 }
 
 /* Hero Section */
 .hero-section {
-    background-color: #2CB67D;
-    color: #FFFFFE;
+  background-color: #2CB67D; /* Solid green background */
+  color: #FFFFFE; /* White text */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: space-between; /* Space between image and text */
+  padding: 40px;
+  height: 100vh; /* Full viewport height */
 }
 
-.hero-section .btn {
-    background-color: #FFFFFE;
-    color: #16161A;
-    border-radius: 5px;
-    padding: 10px 20px;
+/* Image Content */
+.hero-image img {
+  max-width: 85%; /* Adjusts the image size */
+  border-radius: 10px; /* Adds rounded corners to the image */
 }
 
-.hero-section .btn:hover {
-    background-color: #7F5AF0;
-    color: #FFFFFE;
+/* Text Content */
+.hero-content {
+  max-width: 50%; /* Adjusts the size of the text block */
+  text-align: left;
 }
 
-/* Plans Section */
-/* Cards */
-.plans-section .card {
-    border: none;
-    border-radius: 8px;
-    background-color: #FFFFFE;
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  background-color: #7F5AF0; /* Purple button */
+  color: #FFFFFE; /* White text */
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero-button:hover {
+  background-color: #94A1B2; /* Gray hover effect */
+}
+
+.plans-section {
+    display: flex;
+    justify-content: space-around; /* Espacio entre las columnas */
+    align-items: flex-start; /* Alineación en la parte superior */
+    flex-wrap: wrap; /* Permitir filas adicionales en pantallas pequeñas */
     padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 20px; /* Espacio entre las tarjetas */
 }
 
-.plans-section .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+.plan-card {
+    background-color: #2CB67D; /* Fondo verde */
+    color: #FFFFFE; /* Texto blanco */
+    border: 1px solid #7F5AF0; /* Borde morado */
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px; /* Ancho fijo para todas las tarjetas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    text-align: center;
 }
 
-.plans-section .btn {
-    background-color: #7F5AF0;
-    color: #FFFFFE;
+.plan-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.plan-price {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.plan-features {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.plan-features li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.plan-button {
+    background-color: #7F5AF0; /* Fondo morado */
+    color: #FFFFFE; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-.plans-section .btn:hover {
-    background-color: #2CB67D;
-    color: #FFFFFE;
+.plan-button:hover {
+    background-color: #94A1B2; /* Fondo gris al pasar el mouse */
+    color: #16161A; /* Texto negro */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    transition: all 0.3s ease-in-out;
 }
 
 /* Footer */

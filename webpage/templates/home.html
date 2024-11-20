@@ -6,75 +6,52 @@
 {% block content %}
 
 <!-- Sección 1: Hero con Imagen Publicitaria -->
-<section class="hero-section py-5" style="background: linear-gradient(to bottom, rgba(44, 182, 125, 0.8), rgba(44, 182, 125, 0.8)), url('{% static "img/hero-background.jpg" %}') no-repeat center center / cover;">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Imagen Publicitaria -->
-            <div class="col-md-6 text-center">
-                <img src="{% static 'img/image1.jpg' %}" alt="Publicidad" class="img-fluid shadow-lg rounded">
-            </div>
-            <!-- Texto y Botón -->
-            <div class="col-md-6 text-white text-center text-md-start">
-                <h1 class="fw-bold" style="font-size: 2.5rem; line-height: 1.2;">Páginas web a tu medida</h1>
-                <p class="lead mt-3">Lleva tu proyecto al siguiente nivel con nuestras soluciones personalizadas.</p>
-                <a href="#planes" class="btn btn-light btn-lg mt-4" style="color: #2CB67D;">Revisa nuestros planes</a>
-            </div>
-        </div>
+<section class="hero-section">
+    <!-- Left Image -->
+    <div class="hero-image">
+      <img src="{% static 'img/image1.jpg' %}" alt="Man looking at the sea">
     </div>
-</section>
 
-<!-- Sección 2: Planes -->
-<section id="planes" class="plans-section py-5">
-    <div class="container">
-        <h2 class="text-center fw-bold mb-4" style="color: #7F5AF0;">Nuestros Planes</h2>
-        <div class="row">
-            <!-- Plan Básico -->
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card text-center shadow-sm h-100">
-                    <div class="card-body">
-                        <h3 class="fw-bold" style="color: #2CB67D;">Plan Básico</h3>
-                        <h4 class="fw-bold text-dark">$49.990 <span class="fs-6 text-muted">/ Anual</span></h4>
-                        <ul class="list-unstyled mt-3">
-                            <li>Diseño web estándar</li>
-                            <li>Hosting 500MB incluido</li>
-                            <li>Certificado SSL</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary mt-3">Elige este plan</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Plan Económico -->
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card text-center shadow-sm h-100">
-                    <div class="card-body">
-                        <h3 class="fw-bold" style="color: #7F5AF0;">Plan Económico</h3>
-                        <h4 class="fw-bold text-dark">$99.990 <span class="fs-6 text-muted">/ Anual</span></h4>
-                        <ul class="list-unstyled mt-3">
-                            <li>Diseño web personalizado</li>
-                            <li>Hosting 1GB incluido</li>
-                            <li>Certificado SSL</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary mt-3">Elige este plan</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Plan Emprendedor -->
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card text-center shadow-sm h-100">
-                    <div class="card-body">
-                        <h3 class="fw-bold" style="color: #94A1B2;">Plan Emprendedor</h3>
-                        <h4 class="fw-bold text-dark">$199.990 <span class="fs-6 text-muted">/ Anual</span></h4>
-                        <ul class="list-unstyled mt-3">
-                            <li>Diseño web avanzado</li>
-                            <li>Hosting 5GB incluido</li>
-                            <li>Certificado SSL</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary mt-3">Elige este plan</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Right Content -->
+    <div class="hero-content">
+      <h1 class="hero-title">Páginas web a tu medida</h1>
+      <p class="hero-description">Lleva tu proyecto al siguiente nivel con nuestros servicios personalizados.</p>
+      <a href="#planes" class="hero-button">Revisa nuestros planes</a>
     </div>
+  </section>
+
+<!-- Sección 2: planes -->
+<section id="planes" class="plans-section">
+  <div class="plan-card">
+      <h3 class="plan-title">Plan Básico</h3>
+      <p class="plan-price">$49.990 / Anual</p>
+      <ul class="plan-features">
+          <li>Diseño web estándar</li>
+          <li>Hosting 500MB incluido</li>
+          <li>Certificado SSL</li>
+      </ul>
+      <button class="plan-button">Elige este plan</button>
+  </div>
+  <div class="plan-card">
+      <h3 class="plan-title">Plan Económico</h3>
+      <p class="plan-price">$99.990 / Anual</p>
+      <ul class="plan-features">
+          <li>Diseño web personalizado</li>
+          <li>Hosting 1GB incluido</li>
+          <li>Certificado SSL</li>
+      </ul>
+      <button class="plan-button">Elige este plan</button>
+  </div>
+  <div class="plan-card">
+      <h3 class="plan-title">Plan Emprendedor</h3>
+      <p class="plan-price">$199.990 / Anual</p>
+      <ul class="plan-features">
+          <li>Diseño web avanzado</li>
+          <li>Hosting 5GB incluido</li>
+          <li>Certificado SSL</li>
+      </ul>
+      <button class="plan-button">Elige este plan</button>
+  </div>
 </section>
 
 
