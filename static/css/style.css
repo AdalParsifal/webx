@@ -5,6 +5,33 @@ body {
     background-color: #FFFFFE; /* Fondo blanco */
     color: #16161A; /* Texto negro */
 }
+/* NAVBAR */
+.navbar {
+  background: linear-gradient(90deg, #94A1B2, #2CB67D); /* Gradient background */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #FFFFFE !important; /* White text for logo */
+}
+
+.navbar-nav .nav-link {
+  color: #FFFFFE !important; /* White text for links */
+  font-weight: bold;
+  margin-right: 15px; /* Spacing between links */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #7F5AF0 !important; /* Purple on hover */
+}
+
+.navbar-toggler {
+  border: none; /* Removes border from toggler */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Custom white toggler icon */
+}
 
 /* Hero Section */
 .hero-section {
@@ -54,7 +81,7 @@ body {
 .hero-button:hover {
   background-color: #94A1B2; /* Gray hover effect */
 }
-
+/* COLUMNAS */
 .plans-section {
     display: flex;
     justify-content: space-around; /* Espacio entre las columnas */
