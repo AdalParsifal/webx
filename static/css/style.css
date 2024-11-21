@@ -83,55 +83,65 @@ body {
 /* NAVBAR */
 
 .navbar {
-  background: linear-gradient(90deg, #94A1B2, #2CB67D); /* Smooth gradient background */
+  background: transparent; /* Hacer el fondo transparente */
   padding: 10px 20px;
-  display: flex; /* Enable flexbox */
-  justify-content: space-between; /* Push brand and nav items apart */
+  display: flex; /* Flexbox para alinear elementos */
+  justify-content: space-between; /* Separar logo y navegación */
   align-items: center;
   height: 40px;
+  position: absolute; /* Asegurar que se superponga sobre el hero */
+  top: 0;
+  width: 100%; /* Asegurar que cubra todo el ancho */
+  z-index: 10; /* Ponerlo encima del hero */
 }
 
 .navbar-brand {
-  color: #FFFFFE !important; /* White logo text */
+  color: #FFFFFE !important; /* Texto blanco para el logo */
   font-weight: bold;
   font-size: 1.5rem;
   margin-right: auto;
 }
 
 .navbar-brand .logo {
-  height: 40px; /* Adjust the logo height */
-  width: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensure the image is properly scaled */
+  height: 40px; /* Ajusta la altura del logo */
+  width: auto; /* Mantén la proporción */
+  object-fit: contain; /* Escala adecuadamente */
 }
 
 .navbar-nav {
-  display: flex; /* Align navigation items horizontally */
-  margin-left: 850px; /* Push navigation to the right */
-  gap: 20px; /* Add spacing between nav items */
-  list-style: none; /* Remove default list styling */
+  display: flex; /* Alinear horizontalmente los elementos */
+  margin-left: 850px;
+  gap: 20px; /* Espacio entre los elementos */
+  list-style: none; /* Quitar los estilos de lista */
+  
 }
 
 .nav-item {
-  list-style: none; /* Ensure no bullets or dots appear */
+  list-style: none; /* Sin viñetas */
   margin-right: auto;
 }
 
 .nav-link {
-  color: #FFFFFE !important; /* White text for links */
+  color: #FFFFFE !important; /* Texto blanco */
   font-weight: 500;
-  text-decoration: none; /* Remove underline from links */
+  text-decoration: none; /* Sin subrayado */
+  transition: color 0.3s ease; /* Transición suave en hover */
 }
 
 .nav-link:hover {
-  color: #7F5AF0 !important; /* Purple hover effect */
+  color: #7F5AF0 !important; /* Efecto hover púrpura */
 }
 
 .navbar-toggler {
-  border: none; /* Remove border from toggler */
+  border: none; /* Sin borde en el botón toggler */
+  background: transparent; /* Fondo blanco semitransparente */
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* White toggler icon */
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  /* Icono blanco */
 }
 
 .container {
