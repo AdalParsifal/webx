@@ -151,7 +151,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background-image: url('../img/hero4.png'); /* Ruta de la imagen */
+  background-image: url('../img/hero3.png'); /* Ruta de la imagen */
   background-size: cover; /* Escala la imagen para cubrir todo */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que se repita */
@@ -196,7 +196,7 @@ body {
 }
 
 .hero-button {
-  background-color: #7F5AF0; /* Botón púrpura */
+  background-color: #2CB67D; /* Botón púrpura */
   color: #FFFFFE; /* Texto blanco */
   border: none;
   padding: 15px 30px;
@@ -212,7 +212,7 @@ body {
 
 /* ABOUT */
 .about-section {
-  background-image: url('../img/about1.jpg'); /* Ruta de la imagen */
+  background-image: url('../img/about2.png'); /* Ruta de la imagen */
   background-size: cover; /* Escala la imagen para cubrir todo el fondo */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
