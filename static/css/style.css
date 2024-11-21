@@ -141,25 +141,37 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background-color: #2CB67D; /* Solid green background */
-  color: #FFFFFE; /* White text */
+  background-image: url('../img/hero4.png'); /* Ruta de la imagen */
+  background-size: cover; /* Escala la imagen para cubrir todo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que se repita */
+  color: #FFFFFE; /* Texto blanco */
   display: flex;
-  align-items: center; /* Center content vertically */
-  justify-content: space-between; /* Space between image and text */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: flex-end; /* Alinea el texto a la derecha */
   padding: 40px;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; /* Altura completa del viewport */
+  position: relative; /* Permite añadir capas, si es necesario */
 }
 
-/* Image Content */
-.hero-image img {
-  max-width: 85%; /* Adjusts the image size */
-  border-radius: 10px; /* Adds rounded corners to the image */
+/* Capa semitransparente (opcional para mejor legibilidad del texto) */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 22, 26, 0.5); /* Oscurece el fondo ligeramente */
+  z-index: 1;
 }
 
 /* Text Content */
 .hero-content {
-  max-width: 50%; /* Adjusts the size of the text block */
-  text-align: left;
+  max-width: 50%; /* Ajusta el ancho del texto */
+  text-align: right; /* Alinea el texto a la derecha */
+  position: relative; /* Para estar encima de la capa oscura */
+  z-index: 2;
 }
 
 .hero-title {
@@ -174,8 +186,8 @@ body {
 }
 
 .hero-button {
-  background-color: #7F5AF0; /* Purple button */
-  color: #FFFFFE; /* White text */
+  background-color: #7F5AF0; /* Botón púrpura */
+  color: #FFFFFE; /* Texto blanco */
   border: none;
   padding: 15px 30px;
   font-size: 1rem;
@@ -185,7 +197,7 @@ body {
 }
 
 .hero-button:hover {
-  background-color: #94A1B2; /* Gray hover effect */
+  background-color: #94A1B2; /* Efecto hover gris */
 }
 
 /* ABOUT */
