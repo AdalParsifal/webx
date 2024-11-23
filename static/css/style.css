@@ -225,6 +225,29 @@ body {
 .hero-button:hover {
   background-color: #94A1B2; /* Efecto hover gris */
 }
+@media (max-width: 768px) {
+  .hero-content {
+    max-width: 100%; /* Full-width text for smaller screens */
+    text-align: center; /* Center-align the text */
+  }
+
+  .hero-title {
+    font-size: 2rem; /* Smaller font size for title */
+  }
+
+  .hero-description {
+    font-size: 1.2rem; /* Smaller font size for description */
+  }
+
+  .hero-button {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    width: 100%; /* Full width for better usability on small screens */
+    max-width: 300px; /* Prevent it from stretching too wide */
+    margin: 0 auto; /* Center the button */
+    display: block; /* Ensure it's displayed as a block element */
+  }
+}
 
 /* ABOUT */
 .about-section {
