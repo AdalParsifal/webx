@@ -251,6 +251,8 @@ body {
 .about-section .container {
   position: relative;
   z-index: 2; /* Asegura que el contenido esté encima de la capa semitransparente */
+  
+
 }
 
 .about-section h2 {
