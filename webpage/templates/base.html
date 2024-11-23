@@ -10,7 +10,7 @@
     <meta name="author" content="WeWeb">
     <title>{% block title %}WeWeb{% endblock %}</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWfek1OLyIHU3fJ5c6F2RpbY6AO4VcElETKvAHoMLvpIMk9CjewqWZLq7PqbgFSC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -20,29 +20,25 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
-            <!-- Website Logo -->
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'img/logo1.png' %}" alt="WeWeb Logo" class="logo">
-            </a>
-    
-            <!-- Mobile Menu Toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <!-- Navbar Links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#planes">Planes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#shop"><i class="bi bi-cart"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#account"><i class="bi bi-person"></i></a></li>
-                </ul>
-            </div>
+        <div class="navbar-container">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo1.png' %}" alt="WeWeb Logo" class="logo">
+          </a>
+      
+          <!-- Navbar Links -->
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#planes">Planes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link" href="#shop"><i class="bi bi-cart"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="#account"><i class="bi bi-person"></i></a></li>
+          </ul>
         </div>
-    </nav>
+      </nav>
+      
+      
+      
 
     <main>
         {% block content %}
@@ -50,18 +46,69 @@
         {% endblock %}
     </main>
 
-    <footer class="site-footer bg-dark text-white text-center py-3">
+    <footer class="footer-section py-4">
         <div class="container">
-            <p>© 2024 WeWeb. Todos los derechos reservados.</p>
-            <p>
-                <a href="#" class="text-white text-decoration-none">Términos y Condiciones</a> | 
-                <a href="#" class="text-white text-decoration-none">Política de Privacidad</a>
-            </p>
+            <div class="row">
+                <!-- Logo and Slogan -->
+                <div class="col-lg-2 col-md-6 text-center mb-3">
+                    <img src="{% static 'img/logo1.png' %}" alt="WeWeb Logo" class="footer-logo-img mb-2">
+                    <p class="footer-slogan" style="color: #94A1B2;">Soluciones de calidad a un precio justo.</p>
+                </div>
+    
+                <!-- Services -->
+                <div class="col-lg-2 col-md-6 mb-3">
+                    <h5 class="fw-bold" style="color: #7F5AF0;">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Diseño Web</a></li>
+                        <li><a href="#" class="footer-link">Carro de Compras</a></li>
+                        <li><a href="#" class="footer-link">Posicionamiento</a></li>
+                        <li><a href="#" class="footer-link">Google Ads</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Information -->
+                <div class="col-lg-2 col-md-6 mb-3">
+                    <h5 class="fw-bold" style="color: #7F5AF0;">Información</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Planes y Precios</a></li>
+                        <li><a href="#" class="footer-link">Ver Clientes</a></li>
+                        <li><a href="#" class="footer-link">Contáctenos</a></li>
+                        <li><a href="#" class="footer-link">Facturación</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Plans -->
+                <div class="col-lg-2 col-md-6 mb-3">
+                    <h5 class="fw-bold" style="color: #7F5AF0;">Planes</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Plan Inicia</a></li>
+                        <li><a href="#" class="footer-link">Básico</a></li>
+                        <li><a href="#" class="footer-link">Económico</a></li>
+                        <li><a href="#" class="footer-link">Emprendedor</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact and Social Links -->
+                <div class="col-lg-4 col-md-12 text-center">
+                    <h5 class="fw-bold" style="color: #7F5AF0;">Contacto</h5>
+                    <p style="color: #94A1B2;">Mail: <a href="mailto:info@weweb.com" class="footer-link">info@weweb.com</a></p>
+                    <p style="color: #94A1B2;">Tel: <a href="tel:+56958445351" class="footer-link">+56 9 5844 5351</a></p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #2CB67D;"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #7F5AF0;"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #94A1B2;"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="text-center mt-4">
+                <p style="color: #94A1B2;">© 2024 WeWeb. Todos los derechos reservados. <a href="#" class="text-decoration-none text-light">Términos y condiciones</a>.</p>
+            </div>
         </div>
     </footer>
-
+    
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-keMg6go6zRRiHT/I+bPbZOhH3Yr9NYhzD57jVovPzrGjlyzks0iKO2EEeYflW0z2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" ></script>
     {% block extra_js %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>

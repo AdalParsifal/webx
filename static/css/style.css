@@ -83,70 +83,70 @@ body {
 /* NAVBAR */
 
 .navbar {
-  background: transparent; /* Hacer el fondo transparente */
+  background: transparent; /* Transparent background */
   padding: 10px 20px;
-  display: flex; /* Flexbox para alinear elementos */
-  justify-content: space-between; /* Separar logo y navegación */
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: space-between; /* Space between logo and nav items */
   align-items: center;
-  height: 40px;
-  position: absolute; /* Asegurar que se superponga sobre el hero */
+  position: absolute; /* Position over hero */
   top: 0;
-  width: 100%; /* Asegurar que cubra todo el ancho */
-  z-index: 10; /* Ponerlo encima del hero */
+  width: 100%; /* Full width */
+  z-index: 10; /* Place above hero section */
+  height: 40px; /* Control height */
+}
+
+.navbar-container {
+  display: flex;
+   /* Space between logo and items */
+  
+  width: 100%; /* Stretch container */
+  display: inline-block;
 }
 
 .navbar-brand {
-  color: #FFFFFE !important; /* Texto blanco para el logo */
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-right: auto;
+  margin-right: auto; /* Push items to the right */
 }
 
-.navbar-brand .logo {
-  height: 40px; /* Ajusta la altura del logo */
-  width: auto; /* Mantén la proporción */
-  object-fit: contain; /* Escala adecuadamente */
+.logo {
+  height: 40px;
+  object-fit: contain;
 }
 
 .navbar-nav {
-  display: flex; /* Alinear horizontalmente los elementos */
+  justify-content: flex-end;
   margin-left: 850px;
-  gap: 20px; /* Espacio entre los elementos */
-  list-style: none; /* Quitar los estilos de lista */
-  
+  display: inline-block;
+  gap: 20px; /* Space between items */
+  list-style: none; /* Remove default list styling */
+
 }
 
 .nav-item {
-  list-style: none; /* Sin viñetas */
-  margin-right: auto;
+  display: inline-block; /* Ensure horizontal alignment */
 }
 
 .nav-link {
-  color: #FFFFFE !important; /* Texto blanco */
+  color: #FFFFFE; /* White text */
   font-weight: 500;
-  text-decoration: none; /* Sin subrayado */
-  transition: color 0.3s ease; /* Transición suave en hover */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 5px 10px; /* Add padding for spacing */
 }
 
 .nav-link:hover {
-  color: #7F5AF0 !important; /* Efecto hover púrpura */
+  color: #7F5AF0; /* Hover color */
 }
 
-.navbar-toggler {
-  border: none; /* Sin borde en el botón toggler */
-  background: transparent; /* Fondo blanco semitransparente */
-  padding: 5px 10px;
-  border-radius: 5px;
-}
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    gap: 10px; /* Adjust spacing */
+  }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  /* Icono blanco */
-}
-
-.container {
-  display: flex;
-  align-items: center; /* Align all items within the container */
+  .navbar {
+    height: auto; /* Adjust height for stacked items */
+  }
 }
 
 /* Hero Section */
@@ -377,17 +377,60 @@ body {
   transform: scale(1.02); /* Slight zoom effect */
   transition: all 0.3s ease-in-out; /* Smooth transition */
 }
-/* Footer */
+
+/* Footer Section */
 .footer-section {
-    background-color: #16161A;
-    color: #94A1B2;
+  background-color: #16161A; /* Dark background */
+  padding: 40px 20px; /* Padding for spacing */
+  color: #FFFFFE; /* White text */
 }
 
-.footer-section a {
-    color: #FFFFFE;
-    transition: color 0.3s ease;
+.footer-logo-img {
+  width: 100px; /* Size of the logo */
+  margin-bottom: 10px;
 }
 
-.footer-section a:hover {
-    color: #2CB67D;
+.footer-slogan {
+  font-size: 14px;
+  color: #94A1B2; /* Light gray text */
+}
+
+.footer-link {
+  color: #94A1B2; /* Light gray links */
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #7F5AF0; /* Hover color */
+}
+
+.social-icons a {
+  color: #FFFFFE; /* Default icon color */
+  font-size: 20px; /* Icon size */
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Align icons inline */
+}
+
+.social-icons a:hover {
+  background-color: #FFFFFE; /* Highlight background */
+  color: #16161A; /* Icon color on hover */
+  padding: 10px; /* Padding for hover effect */
+}
+
+.footer-section .text-center {
+  margin-top: 20px;
+}
+
+/* Responsive Footer Adjustments */
+@media (max-width: 768px) {
+  .footer-section .container .row {
+      flex-wrap: wrap;
+  }
+
+  .footer-content {
+      text-align: center;
+      margin-bottom: 20px;
+  }
 }
