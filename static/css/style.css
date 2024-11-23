@@ -397,7 +397,22 @@ body {
   transform: scale(1.02); /* Slight zoom effect */
   transition: all 0.3s ease-in-out; /* Smooth transition */
 }
+@media (max-width: 768px) {
+  .features-section {
+    display: flex; /* Enable Flexbox */
+    justify-content: space-around; /* Space out columns evenly */
+    align-items: flex-start; /* Align items at the top */
+    flex-wrap: wrap; /* Allow wrapping for additional rows */
+    padding: 10px; /* Smaller padding */
+  }
 
+  .feature-card {
+    width: auto; /* Allow cards to take full width of container */
+    height: auto; /* Remove fixed height to allow content to flow naturally */
+    padding: 15px; /* Adjust padding for better readability */
+  }
+
+}
 /* Footer Section */
 .footer-section {
   background-color: #16161A; /* Dark background */
