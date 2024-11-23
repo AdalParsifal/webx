@@ -97,8 +97,6 @@ body {
 
 .navbar-container {
   display: flex;
-   /* Space between logo and items */
-  
   width: 100%; /* Stretch container */
   display: inline-block;
 }
@@ -114,11 +112,10 @@ body {
 
 .navbar-nav {
   justify-content: flex-end;
-  margin-left: 850px;
   display: inline-block;
   gap: 20px; /* Space between items */
   list-style: none; /* Remove default list styling */
-
+  margin-left: 850px;
 }
 
 .nav-item {
@@ -137,15 +134,34 @@ body {
   color: #7F5AF0; /* Hover color */
 }
 
-/* RESPONSIVENESS */
+/* Toggler Button */
+.navbar-toggler {
+  display: none; /* Hide toggler by default */
+  background: none;
+  border: none;
+  color: #FFFFFE;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .navbar-nav {
     flex-direction: column; /* Stack items vertically on smaller screens */
     gap: 10px; /* Adjust spacing */
+    display: none; /* Hide by default on mobile */
+    margin-left: 0; /* Reset margin for mobile */
   }
 
   .navbar {
     height: auto; /* Adjust height for stacked items */
+  }
+
+  .navbar-toggler {
+    display: block; /* Show toggler on smaller screens */
+  }
+
+  .navbar-nav.show {
+    display: flex; /* Show navbar when toggler is clicked */
   }
 }
 
