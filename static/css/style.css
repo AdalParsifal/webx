@@ -339,14 +339,16 @@ body {
   font-weight: bold; /* Bold title */
   margin-bottom: 20px; /* Space below the title */
   color: #16161A; /* Dark text color */
+  grid-column: span 3; /* Make the title span across all columns */
 }
+
 .features-section {
-  display: flex; /* Enable Flexbox */
-  justify-content: space-around; /* Space out columns evenly */
-  align-items: flex-start; /* Align items at the top */
-  flex-wrap: wrap; /* Allow wrapping for additional rows */
-  padding: 20px; /* Add padding around the section */
-  gap: 20px; /* Space between feature cards */
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-gap: 20px; /* Space between cards */
+  justify-items: center; /* Center items in each grid cell */
+  align-items: flex-start; /* Align items to the top of each cell */
+  padding: 20px; /* Add some padding around the section */
 }
 
 /* Features Section Styling */
@@ -362,7 +364,7 @@ body {
   border-radius: 8px; /* Slightly rounded corners */
   padding: 10px; /* Compact padding */
   width: 300px; /* Smaller width */
-  height: 80px; /* Smaller height */
+  height: 100px; /* Smaller height */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   text-align: left; /* Align text to the left */
 }
@@ -434,7 +436,7 @@ body {
 .social-icons a:hover {
   background-color: #FFFFFE; /* Highlight background */
   color: #16161A; /* Icon color on hover */
-  padding: 10px; /* Padding for hover effect */
+  
 }
 
 .footer-section .text-center {
