@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style> 
+ /* Aplicar la paleta de colores */
+body {
+background-color: #16161A;
+color: #94A1B2;
+font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos para el formulario */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #16161A; /* Fondo oscuro */
+    padding: 20px;
+    border-radius: 10px;
+    color: #94A1B2; /* Color gris para el texto */
+}
+
+h2 {
+    color: #7F5AF0; /* Color morado para el título */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: #FFFFFE; /* Texto de los labels en blanco */
+    font-weight: 600;
+}
+
+.form-control {
+    background-color: #2CB67D; /* Fondo verde para el campo */
+    color: #FFFFFE; /* Texto en blanco */
+    border: 1px solid #7F5AF0; /* Borde morado */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form-control:focus {
+    background-color: #2CB67D;
+    border-color: #FFFFFE; /* Borde blanco al estar enfocado */
+    box-shadow: 0 0 5px #7F5AF0; /* Efecto de sombra morada */
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.btn-primary {
+    background-color: #7F5AF0; /* Fondo del botón morado */
+    color: #FFFFFE; /* Texto del botón en blanco */
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #94A1B2; /* Cambio a gris al pasar el mouse */
+}
+</style>
+
+
+<div class="form-container my-5">
+    <h2 class="text-center">Completa tu información antes de pagar para que podamos coordinar la asesoria</h2>
+    <form action="/procesar_pago/" method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="empresa" class="form-label">Empresa/Página</label>
+            <input type="text" class="form-control" id="empresa" name="empresa">
+        </div>
+        <div class="mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="correo" name="correo" required>
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Número de Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" required>
+        </div>
+        <div class="mb-3">
+            <label for="comentario" class="form-label">Hablanos de tu proyecto</label>
+            <textarea class="form-control" id="comentario" name="comentario" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Proceder a Pagar</button>
+    </form>
+</div>
+{% endblock %}
