@@ -6,6 +6,22 @@ body {
     color: #16161A; /* Texto negro */
 }
 
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+   /* Color verde de WhatsApp */
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button img {
+  width: 50px;
+  height: 50px;
+}
+
 /* Animaciones */
 @keyframes fadeInRight {
   from {
