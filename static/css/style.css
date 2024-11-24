@@ -9,17 +9,18 @@ body {
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;  /* Cambiado a 'left' para colocarlo al lado izquierdo */
   z-index: 1000;
-   /* Color verde de WhatsApp */
+  background-color: transparent; /* Usaremos transparente para que no haya fondo extraño */
   border-radius: 50%;
-  padding: 10px;
+  padding: 10px; /* Reduce el padding si es necesario para ajustarlo mejor */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .whatsapp-button img {
-  width: 50px;
-  height: 50px;
+  width: 60px; /* Tamaño ajustado para mantener buena proporción */
+  height: auto; /* Usar 'auto' asegura que se respete la proporción original */
+  display: block; /* Esto ayudará a centrar la imagen dentro de su contenedor */
 }
 
 /* Animaciones */
