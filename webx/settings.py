@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpage',
+    'payments',
+    'payments_mercadopago',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +125,20 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PAYMENT_VARIANTS = {
+    # ...
+    'MercadoPago':('payments_mercadopago.MercadoPagoProvider',{
+        'access_token': 'TEST-1846613135498560-112319-d1471b37c56b35a15b8f9e0027f8be0d-245524862',
+        'sandbox_mode': True})
+}
+
+CHECKOUT_PAYMENT_CHOICES = [('MercadoPago', 'Mercado Pago')]
+
+# Keep in mind that if you use `localhost`, external servers won't be
+# able to reach you for webhook notifications.
+PAYMENT_HOST = 'http://127.0.0.1:8000/'
+
+# Whether to use TLS (HTTPS). If false, will use plain-text HTTP.
+# Defaults to ``not settings.DEBUG``.
+PAYMENT_USES_SSL = False

@@ -66,8 +66,8 @@ textarea.form-control {
 
 
 <div class="form-container my-5">
-    <h2 class="text-center">Completa tu información antes de pagar para que podamos coordinar la asesoria</h2>
-    <form action="/procesar_pago/" method="post" class="mt-4">
+    <h2 class="text-center">Completa tu información antes de pagar</h2>
+    <form action="{% url 'formulario_pago' %}" method="post" class="mt-4">
         {% csrf_token %}
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
@@ -86,7 +86,7 @@ textarea.form-control {
             <input type="tel" class="form-control" id="telefono" name="telefono" required>
         </div>
         <div class="mb-3">
-            <label for="comentario" class="form-label">Hablanos de tu proyecto</label>
+            <label for="comentario" class="form-label">Háblanos de tu proyecto</label>
             <textarea class="form-control" id="comentario" name="comentario" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Proceder a Pagar</button>
