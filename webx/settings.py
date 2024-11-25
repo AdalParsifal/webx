@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'webpage',
     'payments',
     'payments_mercadopago',
+    'mercadopago',
 ]
 
 MIDDLEWARE = [
