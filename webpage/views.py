@@ -51,101 +51,43 @@ def procesar_pago(request):
                 logger.error("El monto de la transacción no es un número válido: %s", transaction_amount)
                 return JsonResponse({"error": "El monto de la transacción debe ser un número válido."}, status=400)
 
-            
+            # Validar el método de pago
+            payment_method = body_data.get("payment_method")
+            logger.debug("payment_method recibido: %s", payment_method)
+            if not payment_method:
+                logger.error("El método de pago no está presente en el JSON.")
+                return JsonResponse({"error": "El método de pago es obligatorio."}, status=400)
 
-            # Recuperar datos del formulario enviado
-            payment_method = request.POST.get("payment_method", "credit_card")
-            logger.info("Método de pago seleccionado: %s", payment_method)
+            # Preparar los datos para Mercado Pago
+            payment_data = {
+                "transaction_amount": transaction_amount,
+                "token": body_data.get("token"),
+                "description": body_data.get("description", "Compra de producto/servicio"),
+                "installments": int(body_data.get("installments", 1)),
+                "payment_method_id": body_data.get("payment_method_id"),
+                "payer": {
+                    "email": body_data.get("cardholderEmail"),
+                    "identification": {
+                        "type": body_data.get("identificationType", "DNI"),
+                        "number": body_data.get("identificationNumber"),
+                    },
+                    "first_name": body_data.get("cardholderName", "Cliente"),
+                },
+            }
+            logger.debug("Datos de pago preparados: %s", payment_data)
 
-            payment_data = None
-
-            # Construcción de datos según método de pago
-            if payment_method == "credit_card":
-                payment_data = {
-                    "transaction_amount": (request.POST.get("transaction_amount")),
-                    "token": request.POST.get("token"),
-                    "description": request.POST.get("description"),
-                    "installments": int(request.POST.get("installments")),
-                    "payment_method_id": request.POST.get("payment_method_id"),
-                    "payer": {
-                        "email": request.POST.get("cardholderEmail"),
-                        "identification": {
-                            "type": request.POST.get("identificationType"),
-                            "number": request.POST.get("identificationNumber")
-                        },
-                        "first_name": request.POST.get("cardholderName")
-                    }
-                }
-                logger.debug("Datos de tarjeta de crédito preparados: %s", payment_data)
-
-            elif payment_method == "pix":
-                payment_data = {
-                    "transaction_amount": float(request.POST.get("transaction_amount", 100)),
-                    "description": request.POST.get("description", "Descripción del producto"),
-                    "payment_method_id": "pix",
-                    "payer": {
-                        "email": request.POST.get("payerEmail", "test@test.com"),
-                        "first_name": request.POST.get("payerFirstName", "Test"),
-                        "last_name": request.POST.get("payerLastName", "User"),
-                        "identification": {
-                            "type": request.POST.get("identificationType", "CPF"),
-                            "number": request.POST.get("identificationNumber", "191191191-00")
-                        },
-                        "address": {
-                            "zip_code": request.POST.get("zip_code", "06233-200"),
-                            "street_name": request.POST.get("street_name", "Av. das Nações Unidas"),
-                            "street_number": request.POST.get("street_number", "3003"),
-                            "neighborhood": request.POST.get("neighborhood", "Bonfim"),
-                            "city": request.POST.get("city", "Osasco"),
-                            "federal_unit": request.POST.get("federal_unit", "SP")
-                        }
-                    }
-                }
-                logger.debug("Datos de PIX preparados: %s", payment_data)
-
-            elif payment_method == "ticket":
-                payment_data = {
-                    "transaction_amount": float(request.POST.get("transaction_amount", 100)),
-                    "description": request.POST.get("description", "Descripción del producto"),
-                    "payment_method_id": "bolbradesco",
-                    "payer": {
-                        "email": request.POST.get("payerEmail", "test@test.com"),
-                        "first_name": request.POST.get("payerFirstName", "Test"),
-                        "last_name": request.POST.get("payerLastName", "User"),
-                        "identification": {
-                            "type": request.POST.get("identificationType", "CPF"),
-                            "number": request.POST.get("identificationNumber", "191191191-00")
-                        },
-                        "address": {
-                            "zip_code": request.POST.get("zip_code", "06233-200"),
-                            "street_name": request.POST.get("street_name", "Av. das Nações Unidas"),
-                            "street_number": request.POST.get("street_number", "3003"),
-                            "neighborhood": request.POST.get("neighborhood", "Bonfim"),
-                            "city": request.POST.get("city", "Osasco"),
-                            "federal_unit": request.POST.get("federal_unit", "SP")
-                        }
-                    }
-                }
-                logger.debug("Datos de ticket preparados: %s", payment_data)
-
-            else:
-                logger.warning("Método de pago no soportado: %s", payment_method)
-                return JsonResponse({"error": "Método de pago no soportado."}, status=400)
-
-            # Agregar las back_urls al objeto de pago
+            # Agregar las back_urls
             payment_data["back_urls"] = {
                 "success": "http://localhost:8000/pago_exitoso/",
                 "failure": "http://localhost:8000/pago_fallido/",
-                "pending": "http://localhost:8000/pago_pendiente/"
+                "pending": "http://localhost:8000/pago_pendiente/",
             }
             payment_data["auto_return"] = "approved"
 
-            logger.debug("Datos finales del pago: %s", payment_data)
-
             # Crear el pago con Mercado Pago
-            sdk = mercadopago.SDK(ACCESS_TOKEN)
             payment_response = sdk.payment().create(payment_data)
             payment = payment_response["response"]
+            print(payment)
             logger.info("Respuesta de Mercado Pago: %s", payment)
 
             return JsonResponse(payment)

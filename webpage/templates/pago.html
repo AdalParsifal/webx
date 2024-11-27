@@ -22,8 +22,8 @@
   const renderPaymentBrick = async (bricksBuilder) => {
     const settings = {
       initialization: {
-        amount: "10000.00", // Monto total a pagar
-        preferenceId: "{{ preference_id|escapejs }}", // Asegúrate de pasar preference_id desde tu backend
+        amount: 10000, // Monto total a pagar
+        preferenceId: "{{ preference_id|escapejs }}", // Pasar desde el backend si es necesario
         payer: {
           firstName: "Juan",
           lastName: "Perez",
@@ -52,20 +52,23 @@
           console.log("El Payment Brick está listo.");
         },
         onSubmit: ({ selectedPaymentMethod, formData }) => {
-          console.log("Datos enviados:", formData);
-          
+          console.log("Datos enviados desde el Payment Brick:", formData);
+
           const dataToSend = {
-            transaction_amount: "10000.00", // Agregar el monto de la transacción
-            payment_method: selectedPaymentMethod.type,
-          }
-          
+            ...formData, // Incluye todos los datos generados por el Payment Brick
+            transaction_amount: 10000, // Monto fijo de la transacción
+            payment_method: paymentMethod, // Método de pago seleccionado
+          };
+
+          console.log("Datos enviados al backend:", dataToSend);
+
           return new Promise((resolve, reject) => {
             fetch("/procesar_pago/", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(formData),
+              body: JSON.stringify(dataToSend),
             })
               .then((response) => response.json())
               .then((response) => {
