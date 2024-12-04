@@ -3,6 +3,7 @@ from django.db import models
 class Plan(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
     precio = models.PositiveIntegerField()
+    precio_anual = models.PositiveIntegerField()
 
     def __str__(self):
         return self.nombre

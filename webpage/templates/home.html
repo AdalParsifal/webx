@@ -39,7 +39,8 @@
     {% if plan.nombre != "Plan De Medios" %}
       <div class="plan-card">
         <h3 class="plan-title">{{ plan.nombre }}</h3>
-        <p class="plan-price">${{ plan.precio }} / Anual</p>
+        <p class="plan-price">${{ plan.precio }}</p>
+        <p class="plan-price">${{ plan.precio_anual }} / Anual (después de un año gratis)</p>
         <ul class="plan-features">
             {% if plan.nombre == "Plan S" %}
                 <li>Diseño web estándar</li>
