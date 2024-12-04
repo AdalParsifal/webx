@@ -369,6 +369,81 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+/* MEDIOS */
+.medios-plan {
+  padding: 40px 20px;
+  background-color: #16161A; /* Fondo oscuro para contraste */
+  text-align: center;
+}
+
+/* Title of the section */
+.medios-title {
+  font-size: 2.5rem; /* Adjust title size */
+  font-weight: bold;;
+  color: #2CB67D; /* Verde para resaltar */
+  margin-bottom: 20px;
+  
+}
+
+/* Card container style */
+.medios-card {
+  background-color: #2CB67D; /* Fondo verde del plan */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Title inside the card */
+.mediosplan-title {
+  font-size: 1.5rem;
+  color: #FFFFFE; /* Blanco para destacar sobre fondo verde */
+  font-weight: bold;
+  margin-bottom: 15px;
+  
+}
+
+/* Price of the plan */
+.medios-price {
+  font-size: 2rem;
+  color: #FFFFFE; /* Blanco para contraste */
+  font-weight: 600;
+  margin-bottom: 20px;
+  
+}
+
+/* Description of the plan */
+.medios-desc {
+  font-size: 1rem;
+  color: #FFFFFE;; /* Gris para menor jerarquía visual */
+  margin-bottom: 30px;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  
+}
+
+/* Button style */
+.plan-button {
+  background-color: #7F5AF0; /* Botón morado llamativo */
+  color: #FFFFFE; /* Texto en blanco */
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+
+/* Button hover effect */
+.plan-button:hover {
+  background-color: #2CB67D; /* Al pasar por encima, cambia a verde */
+  color: #16161A; /* Texto cambia a negro */
+}
+
 /* Features */
 /* Features Section Styling */
 
