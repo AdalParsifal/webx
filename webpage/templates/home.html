@@ -35,48 +35,45 @@
 
 <!-- Sección 2: planes -->
 <section id="planes" class="plans-section">
-  <div class="plan-card">
-      <h3 class="plan-title">Plan Básico</h3>
-      <p class="plan-price">$49.990 / Anual</p>
-      <ul class="plan-features">
-          <li>Diseño web estándar</li>
-          <li>Hosting 500MB incluido</li>
-          <li>Certificado SSL</li>
-      </ul>
-      <button class="plan-button">Elige este plan</button>
-  </div>
-  <div class="plan-card">
-      <h3 class="plan-title">Plan Económico</h3>
-      <p class="plan-price">$99.990 / Anual</p>
-      <ul class="plan-features">
-          <li>Diseño web personalizado</li>
-          <li>Hosting 1GB incluido</li>
-          <li>Certificado SSL</li>
-      </ul>
-      <button class="plan-button">Elige este plan</button>
-  </div>
-  <div class="plan-card">
-      <h3 class="plan-title">Plan Emprendedor</h3>
-      <p class="plan-price">$199.990 / Anual</p>
-      <ul class="plan-features">
-          <li>Diseño web avanzado</li>
-          <li>Hosting 5GB incluido</li>
-          <li>Certificado SSL</li>
-      </ul>
-      <button class="plan-button">Elige este plan</button>
-  </div>
+  {% for plan in planes %}
+    {% if plan.nombre != "Plan De Medios" %}
+      <div class="plan-card">
+        <h3 class="plan-title">{{ plan.nombre }}</h3>
+        <p class="plan-price">${{ plan.precio }} / Anual</p>
+        <ul class="plan-features">
+            {% if plan.nombre == "Plan S" %}
+                <li>Diseño web estándar</li>
+                <li>Hosting 500MB incluido</li>
+                <li>Certificado SSL</li>
+            {% elif plan.nombre == "Plan M" %}
+                <li>Diseño web personalizado</li>
+                <li>Hosting 1GB incluido</li>
+                <li>Certificado SSL</li>
+            {% elif plan.nombre == "Plan XL" %}
+                <li>Diseño web avanzado</li>
+                <li>Hosting 5GB incluido</li>
+                <li>Certificado SSL</li>
+            {% endif %}
+        </ul>
+        <button class="plan-button">Elige este plan</button>
+      </div>
+    {% endif %}
+  {% endfor %}
 </section>
 
 <!-- Sección 2.1: Medios -->
 <section id="medios-plan" class="medios-plan">
   <h4 class="medios-title">¡Automatiza tu marketing!</h4>
-  <div class="medios-card">
-    <h3 class="mediosplan-title">Plan De Medios</h3>
-    <p class="medios-price">$250.000 / Mensual</p>
-    <p class="medios-desc">Nuestro plan de medios es la solución perfecta para que puedas relajarte y dejar el alcance de tu redes sociales y comunidad en manos de nuestra boutique de marketing. También te ofrecemos asesoria y busqueda de soluciones en materia de publicidad y marketing. ¡Usamos la más finas tecnologias y habilidades de ciencia de datos!</p>
-    <button class="plan-button">¡Lo necesito!</button>
-  </div>
-
+  {% for plan in planes %}
+    {% if plan.nombre == "Plan De Medios" %}
+      <div class="medios-card">
+        <h3 class="mediosplan-title">{{ plan.nombre }}</h3>
+        <p class="medios-price">${{ plan.precio }} / Mensual</p>
+        <p class="medios-desc">Nuestro plan de medios es la solución perfecta para que puedas relajarte y dejar el alcance de tu redes sociales y comunidad en manos de nuestra boutique de marketing. También te ofrecemos asesoria y búsqueda de soluciones en materia de publicidad y marketing. ¡Usamos la más finas tecnologías y habilidades de ciencia de datos!</p>
+        <button class="plan-button">¡Lo necesito!</button>
+      </div>
+    {% endif %}
+  {% endfor %}
 </section>
 
 <!-- Sección 2.5: features -->

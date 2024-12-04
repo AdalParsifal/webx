@@ -5,12 +5,15 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import logging
+from .models import Plan
 
 PUBLIC_KEY = 'TEST-055ecb2c-e0ed-49c3-adf0-f714bc173c3d'
 ACCESS_TOKEN = 'TEST-1846613135498560-112319-d1471b37c56b35a15b8f9e0027f8be0d-245524862'
 logger = logging.getLogger(__name__)
 def home(request):
-    return render(request, 'home.html')
+    # Obtener todos los planes de la base de datos
+    planes = Plan.objects.all()
+    return render(request, 'home.html', {'planes': planes})
 
 def contratación(request):
     return render(request, 'contratación.html')
