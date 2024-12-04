@@ -40,9 +40,9 @@
     {% if plan.nombre != "Plan De Medios" %}
       <div class="plan-card">
         <h3 class="plan-title">{{ plan.nombre }}</h3>
-        <p class="plan-price">${{ plan.precio|formato_chileno }}</p>
-        <p class="plan-anual">${{ plan.precio_anual|formato_chileno }} / Anual</p>
-        <p class="plan-warn">(después de un año gratis)</p>
+        <p class="plan-price">${{ plan.precio|formato_cl }}</p>
+        <p class="plan-anual">${{ plan.precio_anual|formato_cl }} / Anual</p>
+        <p class="plan-warn">(Después de un año GRATIS)</p>
         <ul class="plan-features">
             {% if plan.nombre == "Plan S" %}
                 <li>Diseño web estándar</li>
@@ -71,7 +71,7 @@
     {% if plan.nombre == "Plan De Medios" %}
       <div class="medios-card">
         <h3 class="mediosplan-title">{{ plan.nombre }}</h3>
-        <p class="medios-price">${{ plan.precio|formato_chileno }} / Mensual</p>
+        <p class="medios-price">${{ plan.precio|formato_cl }} / Mensual</p>
         <p class="medios-desc">Nuestro plan de medios es la solución perfecta para que puedas relajarte y dejar el alcance de tu redes sociales y comunidad en manos de nuestra boutique de marketing. También te ofrecemos asesoria y búsqueda de soluciones en materia de publicidad y marketing. ¡Usamos la más finas tecnologías y habilidades de ciencia de datos!</p>
         <button class="plan-button">¡Lo necesito!</button>
       </div>

@@ -343,12 +343,12 @@ body {
 
 .plan-anual {
   font-size: 1rem;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
   
 }
 
 .plan-warn {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 20px;
   font-weight: bold;
 }
