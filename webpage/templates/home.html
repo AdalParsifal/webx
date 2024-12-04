@@ -58,7 +58,7 @@
                 <li>Certificado SSL</li>
             {% endif %}
         </ul>
-        <button class="plan-button">Elige este plan</button>
+        <a href="{% url 'seleccionar_plan' plan.id %}" class="plan-button">Elige este plan</a>
       </div>
     {% endif %}
   {% endfor %}

@@ -65,9 +65,17 @@ textarea.form-control {
 </style>
 
 
-<div class="form-container my-5">
-    <h2 class="text-center">Completa tu información antes de pagar</h2>
-    <form action="{% url 'formulario_pago' %}" method="post" class="mt-4">
+<div class="form-container">
+    <h2 class="text-center">Completa tu información antes de pagar con Mercado Pago</h2>
+    
+    {% if selected_plan.name %}
+    <div class="selected-plan">
+        <h3 class="text-center">Plan Seleccionado: {{ selected_plan.name }}</h3>
+        <p class="text-center">Precio: ${{ selected_plan.price }}</p>
+    </div>
+    {% endif %}
+
+    <form action="" method="post" class="mt-4">
         {% csrf_token %}
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
@@ -86,10 +94,48 @@ textarea.form-control {
             <input type="tel" class="form-control" id="telefono" name="telefono" required>
         </div>
         <div class="mb-3">
-            <label for="comentario" class="form-label">Háblanos de tu proyecto</label>
+            <label for="comentario" class="form-label">Hablanos de tu proyecto</label>
             <textarea class="form-control" id="comentario" name="comentario" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Proceder a Pagar</button>
+        <button type="button" id="btn-validar" class="btn btn-primary">Proceder a Pagar</button>
     </form>
+
+    {% if selected_plan.name %}
+    <div class="payment-buttons mt-5 text-center">
+        <h4>Realiza el pago con Mercado Pago</h4>
+        {% if selected_plan.name == 'Plan S' %}
+            <script src="https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js"
+                    data-preference-id="245524862-f7effd3e-dc8a-4926-a22e-6a550afbbefc" data-source="button">
+            </script>
+        {% elif selected_plan.name == 'Plan M' %}
+            <script src="https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js"
+                    data-preference-id="245524862-64744569-3ef2-4f89-bf00-fcf6b1c5e4d3" data-source="button">
+            </script>
+        {% elif selected_plan.name == 'Plan XL' %}
+            <script src="https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js"
+                    data-preference-id="245524862-e392827f-85e9-4a41-9e16-f7b86f5eabe8" data-source="button">
+            </script>
+        {% elif selected_plan.name == 'Plan De Medios' %}
+        <a href="https://www.mercadopago.cl/subscriptions/checkout?preapproval_plan_id=2c9380849342d22c019374a07293112d" 
+           name="MP-payButton" class='blue-ar-l-rn-none'>Suscribirme</a>
+        <script type="text/javascript">
+            (function() {
+                function $MPC_load() {
+                    window.$MPC_loaded !== true && (function() {
+                        var s = document.createElement("script");
+                        s.type = "text/javascript";
+                        s.async = true;
+                        s.src = document.location.protocol + "//secure.mlstatic.com/mptools/render.js";
+                        var x = document.getElementsByTagName('script')[0];
+                        x.parentNode.insertBefore(s, x);
+                        window.$MPC_loaded = true;
+                    })();
+                }
+                window.$MPC_loaded !== true ? (window.attachEvent ? window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;
+            })();
+        </script>
+        {% endif %}
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

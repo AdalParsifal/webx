@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 import mercadopago
 import json
@@ -15,8 +15,21 @@ def home(request):
     planes = Plan.objects.all()
     return render(request, 'home.html', {'planes': planes})
 
+def select_plan(request, plan_id):
+    plan = get_object_or_404(Plan, id=plan_id)
+    request.session['selected_plan_id'] = plan.id
+    request.session['selected_plan_name'] = plan.nombre
+    request.session['selected_plan_price'] = plan.precio
+    return redirect('contratación')
 def contratación(request):
-    return render(request, 'contratación.html')
+    selected_plan = {
+        'id': request.session.get('selected_plan_id'),
+        'name': request.session.get('selected_plan_name'),
+        'price': request.session.get('selected_plan_price'),
+    }
+    return render(request, 'contratación.html', {'selected_plan': selected_plan})
+
+
 def pago(request):
     return render(request, 'pago.html')
 @csrf_exempt
