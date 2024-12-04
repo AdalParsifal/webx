@@ -341,6 +341,18 @@ body {
     font-weight: bold;
 }
 
+.plan-anual {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  
+}
+
+.plan-warn {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
 .plan-features {
     text-align: left;
     margin-bottom: 20px;
