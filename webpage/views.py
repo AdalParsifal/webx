@@ -5,7 +5,7 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import logging
-from .models import Plan
+from .models import Cliente, Estado, Plan
 
 PUBLIC_KEY = 'TEST-055ecb2c-e0ed-49c3-adf0-f714bc173c3d'
 ACCESS_TOKEN = 'TEST-1846613135498560-112319-d1471b37c56b35a15b8f9e0027f8be0d-245524862'
@@ -28,6 +28,25 @@ def contratación(request):
         'price': request.session.get('selected_plan_price'),
     }
     return render(request, 'contratación.html', {'selected_plan': selected_plan})
+def guardar_cliente(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        estado_default = Estado.objects.get(pk=1)
+        plan = Plan.objects.get(pk=data['plan'])
+        
+        cliente = Cliente.objects.create(
+            nombre=data['nombre'],
+            empresa_pagina=data.get('empresa'),
+            correo=data['correo'],
+            numero_contacto=data['telefono'],
+            proyecto=data['comentario'],
+            estado=estado_default,
+            plan=plan,
+        )
+        
+        return JsonResponse({'message': 'Cliente guardado exitosamente'}, status=200)
+    return JsonResponse({'error': 'Método no permitido'}, status=405)
+
 
 
 def pago(request):

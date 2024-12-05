@@ -75,7 +75,7 @@ textarea.form-control {
     </div>
     {% endif %}
 
-    <form action="" method="post" class="mt-4">
+    <form id="formulario-datos" action="" method="post" class="mt-4">
         {% csrf_token %}
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
@@ -94,14 +94,21 @@ textarea.form-control {
             <input type="tel" class="form-control" id="telefono" name="telefono" required>
         </div>
         <div class="mb-3">
-            <label for="comentario" class="form-label">Hablanos de tu proyecto</label>
+            <label for="comentario" class="form-label">¡Hablanos de tu proyecto!</label>
             <textarea class="form-control" id="comentario" name="comentario" rows="3"></textarea>
         </div>
+        
+        {% if selected_plan.name == 'Plan S' %}
+        <div class="mb-3">
+            <label for="codigo-descuento" class="form-label">Código de Descuento (Opcional)</label>
+            <input type="text" class="form-control" id="codigo-descuento" name="codigo_descuento" placeholder="Ingresa WW20 si tienes un descuento">
+        </div>
+        {% endif %}
+        
         <button type="button" id="btn-validar" class="btn btn-primary">Proceder a Pagar</button>
     </form>
 
-    {% if selected_plan.name %}
-    <div class="payment-buttons mt-5 text-center">
+    <div id="boton-mercadopago" class="payment-buttons mt-5 text-center" style="display: none;">
         <h4>Realiza el pago con Mercado Pago</h4>
         {% if selected_plan.name == 'Plan S' %}
             <script src="https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js"
@@ -136,6 +143,50 @@ textarea.form-control {
         </script>
         {% endif %}
     </div>
-    {% endif %}
 </div>
+
+<script>
+    document.getElementById('btn-validar').addEventListener('click', function() {
+        // Validar los datos del formulario
+        const formulario = document.getElementById('formulario-datos');
+        
+        if (formulario.checkValidity()) {
+            // Guardar los datos del formulario en la base de datos
+            fetch('{% url "guardar_cliente" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                },
+                body: JSON.stringify({
+                    nombre: document.getElementById('nombre').value,
+                    empresa: document.getElementById('empresa').value,
+                    correo: document.getElementById('correo').value,
+                    telefono: document.getElementById('telefono').value,
+                    comentario: document.getElementById('comentario').value,
+                    plan: '{{ selected_plan.id }}',
+                }),
+            }).then(response => {
+                if (response.ok) {
+                    // Validar el código de descuento
+                    const codigoDescuento = document.getElementById('codigo-descuento')?.value.trim();
+                    if (codigoDescuento && codigoDescuento === 'WW20') {
+                        // Cambiar el botón por el de descuento
+                        document.getElementById('mercadopago-script').src = "https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js";
+                        document.getElementById('mercadopago-script').setAttribute('data-preference-id', '245524862-6f3b5a88-7253-4e3b-b9c7-e481c20da6f8');
+                    }
+                    // Mostrar el botón de Mercado Pago
+                    document.getElementById('boton-mercadopago').style.display = 'block';
+                } else {
+                    alert('Hubo un error al guardar la información del cliente. Por favor, intenta nuevamente.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al intentar guardar la información.');
+            });
+        } else {
+            formulario.reportValidity();  // Mostrar los mensajes de error si el formulario no es válido
+        }
+    });
+</script>
 {% endblock %}

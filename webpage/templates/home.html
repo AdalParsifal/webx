@@ -73,7 +73,7 @@
         <h3 class="mediosplan-title">{{ plan.nombre }}</h3>
         <p class="medios-price">${{ plan.precio|formato_cl }} / Mensual</p>
         <p class="medios-desc">Nuestro plan de medios es la solución perfecta para que puedas relajarte y dejar el alcance de tu redes sociales y comunidad en manos de nuestra boutique de marketing. También te ofrecemos asesoria y búsqueda de soluciones en materia de publicidad y marketing. ¡Usamos la más finas tecnologías y habilidades de ciencia de datos!</p>
-        <button class="plan-button">¡Lo necesito!</button>
+        <a href="{% url 'seleccionar_plan' plan.id %}" class="plan-button">¡Lo necesito!</a>
       </div>
     {% endif %}
   {% endfor %}
