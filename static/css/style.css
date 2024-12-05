@@ -520,6 +520,16 @@ body {
   color: #16161A; /* Texto cambia a negro */
 }
 
+.link {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Mantiene el color del texto del contenedor */
+  font-weight: bold; /* (Opcional) Resalta el enlace */
+}
+
+.link:hover {
+  color: #7F5AF0; /* Color morado al pasar el mouse (puedes cambiarlo) */
+}
+
 /* Features */
 /* Features Section Styling */
 

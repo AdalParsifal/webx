@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load custom_filters %}
 <style> 
  /* Aplicar la paleta de colores */
 body {
@@ -66,23 +67,23 @@ textarea.form-control {
 
 
 <div class="form-container">
-    <h2 class="text-center">Completa tu información antes de pagar con Mercado Pago</h2>
+    <h2 class="text-center">Completa tu información para pagar</h2>
     
     {% if selected_plan.name %}
     <div class="selected-plan">
         <h3 class="text-center">Plan Seleccionado: {{ selected_plan.name }}</h3>
-        <p class="text-center">Precio: ${{ selected_plan.price }}</p>
+        <p class="text-center">Precio: ${{ selected_plan.price|formato_cl }}</p>
     </div>
     {% endif %}
 
     <form id="formulario-datos" action="" method="post" class="mt-4">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
+            <label for="nombre" class="form-label">Nombres y Apellidos</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
         <div class="mb-3">
-            <label for="empresa" class="form-label">Empresa/Página</label>
+            <label for="empresa" class="form-label">Nombre de la Empresa/Página que quieres crear</label>
             <input type="text" class="form-control" id="empresa" name="empresa">
         </div>
         <div class="mb-3">

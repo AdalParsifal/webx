@@ -102,17 +102,20 @@
         <p class="plan-warn">(Después de un año GRATIS)</p>
         <ul class="plan-features">
             {% if plan.nombre == "Plan S" %}
-                <li>Diseño web estándar</li>
-                <li>Hosting 500MB incluido</li>
-                <li>Certificado SSL</li>
-            {% elif plan.nombre == "Plan M" %}
                 <li>Diseño web personalizado</li>
-                <li>Hosting 1GB incluido</li>
-                <li>Certificado SSL</li>
+                <li><a href="#basico" class="link">Todas las facilidades básicas (ver acá)</a></li>
+                <li>Botones de chat y redes sociales</li>
+                <li>Perfecto para presentaciones o catalogos simples</li>
+            {% elif plan.nombre == "Plan M" %}
+                <li>Todos los puntos del Plan S</li>
+                <li>Funciones avanzadas para tus necesidades especificas</li>
+                <li>De 4 a 10 paginas en el sitio</li>
+                <li>Recomendado para E-commerce o consultas medicas</li>
             {% elif plan.nombre == "Plan XL" %}
-                <li>Diseño web avanzado</li>
-                <li>Hosting 5GB incluido</li>
-                <li>Certificado SSL</li>
+                <li>¡Levantamos tu empresa desde 0!</li>
+                <li>Asesoria legal de principio a fin</li>
+                <li>Diseñamos tu branding y estrategia de marketing</li>
+                <li>Todos los puntos del Plan M y mejor</li>
             {% endif %}
         </ul>
         <a href="{% url 'seleccionar_plan' plan.id %}" class="plan-button">Elige este plan</a>
@@ -137,7 +140,7 @@
 </section>
 
 <!-- Sección 2.5: features -->
-<section class="features-section">
+<section id=basico class="features-section">
   <h2 class="section-title">Todos los planes de página web incluyen</h2>
   <div class="feature-card">
     <i class="bi bi-tools feature-icon"></i>
