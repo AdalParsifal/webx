@@ -71,7 +71,7 @@ textarea.form-control {
     {% if selected_plan.name %}
     <div class="selected-plan">
         <h3 class="text-center">Plan Seleccionado: {{ selected_plan.name }}</h3>
-        <p class="text-center">Precio: ${{ selected_plan.price|formato_cl }}</p>
+        <p class="text-center">Precio: ${{ selected_plan.price }}</p>
     </div>
     {% endif %}
 

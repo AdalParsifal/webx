@@ -35,54 +35,48 @@
   </section>
 
 
-<div class="discount-section text-center mt-5">
-    <h4>Introduce tu Código de Descuento</h4>
-    <input type="text" id="codigo-descuento-input" class="form-control w-25 mx-auto" placeholder="Ingresa tu código de descuento">
-    <button type="button" id="btn-aplicar-descuento" class="btn btn-primary mt-3">Aplicar Código</button>
-    <p id="mensaje-descuento" class="mt-4" style="display: none;"></p>
-</div>
-
-<script>
-    document.getElementById('btn-aplicar-descuento').addEventListener('click', function() {
+  <section id="codigo-descuento-section" class="codigo-descuento-section">
+    <h4>¿Tienes un código de descuento?</h4>
+    <input type="text" id="codigo-descuento-input" placeholder="Ingresa tu código aquí">
+    <button id="aplicar-codigo-btn" class="btn btn-primary">Aplicar Código</button>
+    
+    <!-- Aquí se mostrará el mensaje si el código es válido -->
+    <div id="mensaje-descuento" style="display: none;">
+      <p>¡Has desbloqueado la oferta del Plan S!</p>
+      <button id="oferta-plan-btn" class="btn btn-secondary" style="display: none;">¡Lo quiero!</button>
+    </div>
+  </section>
+  
+  <!-- Coloca el script justo antes del cierre del body -->
+  <script>
+    document.getElementById('aplicar-codigo-btn').addEventListener('click', function() {
+        // Obtener el valor del código de descuento ingresado
         const codigoDescuento = document.getElementById('codigo-descuento-input').value.trim();
-
-        if (codigoDescuento) {
-            // Llamada para validar el código de descuento
-            fetch('{% url "validar_codigo_descuento" %}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-                },
-                body: JSON.stringify({ codigo: codigoDescuento }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    document.getElementById('mensaje-descuento').style.display = 'block';
-                    document.getElementById('mensaje-descuento').innerHTML = `Has desbloqueado un descuento del ${data.plan_nombre}`;
-                    
-                    // Redireccionar a contratación con el plan desbloqueado
-                    window.location.href = `/contratacion/?plan_id=${data.plan_id}`;
-                } else {
-                    document.getElementById('mensaje-descuento').style.display = 'block';
-                    document.getElementById('mensaje-descuento').innerHTML = 'Código de descuento inválido. Por favor, intenta nuevamente.';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Hubo un error al intentar validar el código de descuento. Por favor, intenta nuevamente.');
-            });
+        
+        // Código de descuento esperado
+        const codigoValido = 'WW20';
+        
+        // Validar el código de descuento
+        if (codigoDescuento === codigoValido) {
+            // Mostrar el mensaje de descuento y el botón de oferta
+            document.getElementById('mensaje-descuento').style.display = 'block';
+            document.getElementById('oferta-plan-btn').style.display = 'inline-block';
         } else {
-            alert('Por favor ingresa un código de descuento.');
+            // Si el código no es válido, mostrar un mensaje de error
+            alert('Código de descuento incorrecto. Por favor, intenta nuevamente.');
         }
     });
-</script>
+  
+    // Agregar evento para el botón "¡Lo quiero!" que redirige a la contratación del plan S oferta
+    document.getElementById('oferta-plan-btn').addEventListener('click', function() {
+        window.location.href = `{% url 'seleccionar_plan' 0 %}`.replace('0', planId);
+    });
+  </script>
 
   <!-- Sección 2: planes -->
 <section id="planes" class="plans-section">
   {% for plan in planes %}
-    {% if plan.nombre != "Plan De Medios" %}
+    {% if plan.nombre != "Plan De Medios" and "oferta" not in plan.nombre %}
       <div class="plan-card">
         <h3 class="plan-title">{{ plan.nombre }}</h3>
         <p class="plan-price">${{ plan.precio|formato_cl }}</p>
