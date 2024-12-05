@@ -34,7 +34,52 @@
     </div>
   </section>
 
-<!-- Sección 2: planes -->
+
+<div class="discount-section text-center mt-5">
+    <h4>Introduce tu Código de Descuento</h4>
+    <input type="text" id="codigo-descuento-input" class="form-control w-25 mx-auto" placeholder="Ingresa tu código de descuento">
+    <button type="button" id="btn-aplicar-descuento" class="btn btn-primary mt-3">Aplicar Código</button>
+    <p id="mensaje-descuento" class="mt-4" style="display: none;"></p>
+</div>
+
+<script>
+    document.getElementById('btn-aplicar-descuento').addEventListener('click', function() {
+        const codigoDescuento = document.getElementById('codigo-descuento-input').value.trim();
+
+        if (codigoDescuento) {
+            // Llamada para validar el código de descuento
+            fetch('{% url "validar_codigo_descuento" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                },
+                body: JSON.stringify({ codigo: codigoDescuento }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('mensaje-descuento').style.display = 'block';
+                    document.getElementById('mensaje-descuento').innerHTML = `Has desbloqueado un descuento del ${data.plan_nombre}`;
+                    
+                    // Redireccionar a contratación con el plan desbloqueado
+                    window.location.href = `/contratacion/?plan_id=${data.plan_id}`;
+                } else {
+                    document.getElementById('mensaje-descuento').style.display = 'block';
+                    document.getElementById('mensaje-descuento').innerHTML = 'Código de descuento inválido. Por favor, intenta nuevamente.';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al intentar validar el código de descuento. Por favor, intenta nuevamente.');
+            });
+        } else {
+            alert('Por favor ingresa un código de descuento.');
+        }
+    });
+</script>
+
+  <!-- Sección 2: planes -->
 <section id="planes" class="plans-section">
   {% for plan in planes %}
     {% if plan.nombre != "Plan De Medios" %}

@@ -5,7 +5,7 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import logging
-from .models import Cliente, Estado, Plan
+from .models import Cliente, Estado, Plan, CodigoDescuento
 
 PUBLIC_KEY = 'TEST-055ecb2c-e0ed-49c3-adf0-f714bc173c3d'
 ACCESS_TOKEN = 'TEST-1846613135498560-112319-d1471b37c56b35a15b8f9e0027f8be0d-245524862'
@@ -14,6 +14,22 @@ def home(request):
     # Obtener todos los planes de la base de datos
     planes = Plan.objects.all()
     return render(request, 'home.html', {'planes': planes})
+
+def validar_codigo_descuento(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        codigo = data.get('codigo')
+        try:
+            descuento = CodigoDescuento.objects.get(codigo=codigo)
+            return JsonResponse({
+                'success': True,
+                'plan_nombre': descuento.plan.nombre,
+                'plan_id': descuento.plan.id
+            })
+        except CodigoDescuento.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Código no válido'})
+
+    return JsonResponse({'error': 'Método no permitido'}, status=405)
 
 def select_plan(request, plan_id):
     plan = get_object_or_404(Plan, id=plan_id)
