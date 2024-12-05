@@ -112,7 +112,7 @@ def procesar_pago(request):
             # Preparar los datos para Mercado Pago
             payment_data = {
                 "transaction_amount": transaction_amount,
-                "token": body_data.get("token"),
+                
                 "description": body_data.get("description", "Compra de producto/servicio"),
             }
             logger.debug("Datos de pago preparados: %s", payment_data)
