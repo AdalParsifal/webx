@@ -240,7 +240,7 @@ body {
 }
 
 .hero-button:hover {
-  background-color: #94A1B2; /* Efecto hover gris */
+  background-color: #7F5AF0;; /* Efecto hover gris */
 }
 @media (max-width: 768px) {
   .hero-content {
@@ -308,6 +308,69 @@ body {
   color: #94A1B2; /* Gris claro */
 }
 
+/* Estilo para la sección del código de descuento */
+.codigo-descuento-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Estilo para el input del código de descuento */
+#codigo-descuento-input {
+  max-width: 300px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #7F5AF0; /* Borde morado */
+  background-color: #2CB67D; /* Fondo verde */
+  color: #FFFFFE; /* Texto blanco */
+  margin-bottom: 10px;
+}
+
+/* Estilo para el botón de aplicar código */
+#aplicar-codigo-btn {
+  background-color: #16161A; /* Fondo morado */
+  color: #FFFFFE; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover effect para el botón */
+#aplicar-codigo-btn:hover {
+  background-color: #7F5AF0; /* Cambio a gris al pasar el mouse */
+}
+#mensaje-descuento {
+  text-align: center; /* Centrar el texto dentro del mensaje de descuento */
+  margin-top: 10px;
+}
+
+/* Estilo para el botón de oferta "¡Lo quiero!" */
+#oferta-plan-btn {
+  background-color: #7F5AF0; /* Fondo morado */
+  color: #FFFFFE; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Asegurar que se muestre correctamente como botón */
+  margin-top: 10px; /* Añadir espacio superior */
+}
+
+/* Hover effect para el botón */
+#oferta-plan-btn:hover {
+  background-color: #94A1B2; /* Cambio a gris al pasar el mouse */
+}
+
 /* COLUMNAS */
 .plans-section {
     display: flex;
@@ -364,6 +427,7 @@ body {
 }
 
 .plan-button {
+    text-decoration: none;  
     background-color: #7F5AF0; /* Fondo morado */
     color: #FFFFFE; /* Texto blanco */
     border: none;
