@@ -7,6 +7,14 @@ class Plan(models.Model):
 
     def __str__(self):
         return self.nombre
+ 
+class CodigoDescuento(models.Model):
+    codigo = models.CharField(max_length=50, unique=True)
+    descripcion = models.CharField(max_length=255, blank=True, null=True)
+    plan = models.ForeignKey('Plan', on_delete=models.CASCADE)  # Relaciona el código de descuento con un plan específico
+
+    def __str__(self):
+        return f"{self.codigo} - {self.plan.nombre}"    
 
 
 class Estado(models.Model):
