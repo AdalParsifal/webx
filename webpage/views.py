@@ -114,25 +114,10 @@ def procesar_pago(request):
                 "transaction_amount": transaction_amount,
                 "token": body_data.get("token"),
                 "description": body_data.get("description", "Compra de producto/servicio"),
-                "installments": int(body_data.get("installments", 1)),
-                "payment_method_id": body_data.get("payment_method_id"),
-                "payer": {
-                    "email": body_data.get("cardholderEmail"),
-                    "identification": {
-                        "type": body_data.get("identificationType", "DNI"),
-                        "number": body_data.get("identificationNumber"),
-                    },
-                    "first_name": body_data.get("cardholderName", "Cliente"),
-                },
             }
             logger.debug("Datos de pago preparados: %s", payment_data)
 
-            # Agregar las back_urls
-            payment_data["back_urls"] = {
-                "success": "http://localhost:8000/pago_exitoso/",
-                "failure": "http://localhost:8000/pago_fallido/",
-                "pending": "http://localhost:8000/pago_pendiente/",
-            }
+
             payment_data["auto_return"] = "approved"
 
             # Crear el pago con Mercado Pago
