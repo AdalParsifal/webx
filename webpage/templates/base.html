@@ -25,16 +25,14 @@
         <div class="navbar-container">
           <!-- Logo -->
           <a class="navbar-brand" href="#">
-            <img src="{% static 'img/logo1.png' %}" alt="WeWeb Logo" class="logo" href="home.html">
+            <img src="{% static 'img/logo1.png' %}" alt="WeWeb Logo" class="logo" href="/home/">
           </a>
           <button class="navbar-toggler" onclick="toggleNavbar()">☰</button>
           <!-- Navbar Links -->
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="/home/">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="#planes">Planes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="#shop"><i class="bi bi-cart"></i></a></li>
-            <li class="nav-item"><a class="nav-link" href="#account"><i class="bi bi-person"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="#foot">Contacto</a></li>
           </ul>
         </div>
       </nav>
@@ -48,7 +46,7 @@
         {% endblock %}
     </main>
 
-    <footer class="footer-section py-4">
+    <footer id="foot" class="footer-section py-4">
         <div class="container">
             <div class="row">
                 <!-- Logo and Slogan -->
@@ -61,10 +59,10 @@
                 <div class="col-lg-2 col-md-6 mb-3">
                     <h5 class="fw-bold" style="color: #7F5AF0;">Servicios</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link">Diseño Web</a></li>
-                        <li><a href="#" class="footer-link">Carro de Compras</a></li>
-                        <li><a href="#" class="footer-link">Posicionamiento</a></li>
-                        <li><a href="#" class="footer-link">Google Ads</a></li>
+                        <li><a href="#planes" class="footer-link">Diseño Web</a></li>
+                        <li><a href="#planes" class="footer-link">E-commerce</a></li>
+                        <li><a href="#medios-plan" class="footer-link">Marketing</a></li>
+                        <li><a href="https://wa.me/56967591402" class="footer-link">Asesoria legal</a></li>                        
                     </ul>
                 </div>
     
@@ -72,10 +70,10 @@
                 <div class="col-lg-2 col-md-6 mb-3">
                     <h5 class="fw-bold" style="color: #7F5AF0;">Información</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link">Planes y Precios</a></li>
+                        <li><a href="#planes" class="footer-link">Planes y Precios</a></li>
                         <li><a href="#" class="footer-link">Ver Clientes</a></li>
-                        <li><a href="#" class="footer-link">Contáctenos</a></li>
-                        <li><a href="#" class="footer-link">Facturación</a></li>
+                        <li><a href="#about-section" class="footer-link">Sobre Nosotros</a></li>
+                        <li><a href="https://wa.me/56967591402" class="footer-link">Contáctenos</a></li>
                     </ul>
                 </div>
     
@@ -83,10 +81,10 @@
                 <div class="col-lg-2 col-md-6 mb-3">
                     <h5 class="fw-bold" style="color: #7F5AF0;">Planes</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="footer-link">Plan Inicia</a></li>
-                        <li><a href="#" class="footer-link">Básico</a></li>
-                        <li><a href="#" class="footer-link">Económico</a></li>
-                        <li><a href="#" class="footer-link">Emprendedor</a></li>
+                        <li><a href="#planes" class="footer-link">Plan S</a></li>
+                        <li><a href="#planes" class="footer-link">Plan M</a></li>
+                        <li><a href="#planes" class="footer-link">Plan XL</a></li>
+                        <li><a href="#medios-plan" class="footer-link">Plan De Medios</a></li>
                     </ul>
                 </div>
     
@@ -94,11 +92,11 @@
                 <div class="col-lg-4 col-md-12 text-center">
                     <h5 class="fw-bold" style="color: #7F5AF0;">Contacto</h5>
                     <p style="color: #94A1B2;">Mail: <a href="mailto:info@weweb.com" class="footer-link">info@weweb.com</a></p>
-                    <p style="color: #94A1B2;">Tel: <a href="tel:+56958445351" class="footer-link">+56 9 5844 5351</a></p>
+                    <p style="color: #94A1B2;">Tel: <a href="https://wa.me/56967591402" class="footer-link">+56 9 6759 1402</a></p>
                     <div class="social-icons mt-3">
-                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #2CB67D;"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #7F5AF0;"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #94A1B2;"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/weweb_cl/" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #7F5AF0;"><i class="bi bi-instagram"></i></a>                        
+                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #2CB67D;"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle mx-1" style="background-color: #94A1B2;;"><i class="bi bi-facebook"></i></a>                        
                     </div>
                 </div>
             </div>

@@ -132,7 +132,7 @@ body {
   display: inline-block;
   gap: 20px; /* Space between items */
   list-style: none; /* Remove default list styling */
-  margin-left: 850px;
+  margin-left: 930px;
 }
 
 .nav-item {
