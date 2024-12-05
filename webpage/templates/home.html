@@ -35,43 +35,61 @@
   </section>
 
 
-  <section id="codigo-descuento-section" class="codigo-descuento-section">
+<section id="codigo-descuento-section" class="codigo-descuento-section">
     <h4>¿Tienes un código de descuento?</h4>
     <input type="text" id="codigo-descuento-input" placeholder="Ingresa tu código aquí">
     <button id="aplicar-codigo-btn" class="btn btn-primary">Aplicar Código</button>
-    
+
     <!-- Aquí se mostrará el mensaje si el código es válido -->
-    <div id="mensaje-descuento" style="display: none;">
-      <p>¡Has desbloqueado la oferta del Plan S!</p>
-      <button id="oferta-plan-btn" class="btn btn-secondary" style="display: none;">¡Lo quiero!</button>
-    </div>
-  </section>
-  
+    <div id="mensaje-descuento" style="display: none;"></div>
+</section>
   <!-- Coloca el script justo antes del cierre del body -->
-  <script>
-    document.getElementById('aplicar-codigo-btn').addEventListener('click', function() {
-        // Obtener el valor del código de descuento ingresado
-        const codigoDescuento = document.getElementById('codigo-descuento-input').value.trim();
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Botón para aplicar el código de descuento
+        const btnAplicarCodigo = document.getElementById('aplicar-codigo-btn');
+        const mensajeDescuento = document.getElementById('mensaje-descuento');
         
-        // Código de descuento esperado
-        const codigoValido = 'WW20';
-        
-        // Validar el código de descuento
-        if (codigoDescuento === codigoValido) {
-            // Mostrar el mensaje de descuento y el botón de oferta
-            document.getElementById('mensaje-descuento').style.display = 'block';
-            document.getElementById('oferta-plan-btn').style.display = 'inline-block';
-        } else {
-            // Si el código no es válido, mostrar un mensaje de error
-            alert('Código de descuento incorrecto. Por favor, intenta nuevamente.');
-        }
+        btnAplicarCodigo.addEventListener('click', function() {
+            // Obtener el valor del código de descuento ingresado
+            const codigoDescuento = document.getElementById('codigo-descuento-input').value.trim();
+
+            // Intentar obtener el CSRF token desde la etiqueta meta
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            if (!csrfToken) {
+                console.error('Error: CSRF token no encontrado.');
+                return;
+            }
+
+            // Hacer una petición al backend para validar el código de descuento
+            fetch('{% url "validar_codigo_descuento" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken,
+                },
+                body: JSON.stringify({ 'codigo': codigoDescuento }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Mostrar el mensaje de descuento y el botón de oferta
+                    mensajeDescuento.style.display = 'block';
+                    mensajeDescuento.innerHTML = `
+                        <p>¡Has desbloqueado la oferta: ${data.plan_nombre}!</p>
+                        <a href="/seleccionar-plan/${data.plan_id}/" class="plan-button">¡Lo quiero!</a>
+                    `;
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al validar el código de descuento. Por favor, intenta nuevamente.');
+            });
+        });
     });
-  
-    // Agregar evento para el botón "¡Lo quiero!" que redirige a la contratación del plan S oferta
-    document.getElementById('oferta-plan-btn').addEventListener('click', function() {
-        window.location.href = `{% url 'seleccionar_plan' 0 %}`.replace('0', planId);
-    });
-  </script>
+</script>
 
   <!-- Sección 2: planes -->
 <section id="planes" class="plans-section">
