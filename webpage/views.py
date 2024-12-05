@@ -125,6 +125,9 @@ def procesar_pago(request):
             payment = payment_response["response"]
             print(payment)
             logger.info("Respuesta de Mercado Pago: %s", payment)
+            print("=== Respuesta de Mercado Pago ===")
+            print(json.dumps(payment, indent=4))  
+            print("=== Fin de la respuesta ===")
 
             return JsonResponse(payment)
 
