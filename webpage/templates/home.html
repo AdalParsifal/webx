@@ -194,13 +194,13 @@
       <h3>Proyectos de Sitios Web</h3>
       <div class="portfolio-grid">
           <!-- Coloca aquí las imágenes de los proyectos de sitios web -->
-          <div class="portfolio-item">
+          <div class="portfolio-item" onclick="openModal('{% static 'img/lex.png' %}')">
               <img src="{% static 'img/datdis.png' %}" alt="Proyecto de sitio web 1" class="portfolio-image">
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" onclick="openModal('{% static 'img/lex.png' %}')">
               <img src="{% static 'img/lex.png' %}" alt="Proyecto de sitio web 2" class="portfolio-image">
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" onclick="openModal('{% static 'img/prism.png' %}')">
             <img src="{% static 'img/prism.png' %}" alt="Proyecto de sitio web 2" class="portfolio-image">
           </div>
           <!-- Agrega más imágenes según sea necesario -->
@@ -224,5 +224,32 @@
           <!-- Agrega más imágenes según sea necesario -->
       </div>
   </div>
+  <div id="imageModal" class="modal">
+    <span id="closeModal" class="close">&times;</span>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Vista ampliada">
+    </div>
+</div>
+<script>
+  function openModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = imageSrc; // Asignar la imagen al modal
+      modal.style.display = 'block'; // Mostrar el modal
+  }
+
+  // Cerrar el modal al hacer clic en el botón de cierre
+  document.getElementById('closeModal').addEventListener('click', function () {
+      document.getElementById('imageModal').style.display = 'none';
+  });
+
+  // Cerrar el modal al hacer clic fuera de la imagen
+  window.addEventListener('click', function (event) {
+      const modal = document.getElementById('imageModal');
+      if (event.target === modal) {
+          modal.style.display = 'none';
+      }
+  });
+</script>
 </section>
 {% endblock %}
