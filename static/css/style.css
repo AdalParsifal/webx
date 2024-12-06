@@ -614,6 +614,46 @@ body {
   }
 
 }
+
+
+
+.portfolio-section {
+    padding: 50px 0;
+    background-color: #16161A;
+    color: #FFFFFE;
+}
+
+.portfolio-category {
+    margin-bottom: 40px;
+}
+
+.portfolio-category h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #7F5AF0;
+}
+
+.portfolio-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.portfolio-item {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 /* Footer Section */
 .footer-section {
   background-color: #16161A; /* Dark background */
